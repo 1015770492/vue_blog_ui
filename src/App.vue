@@ -1,12 +1,13 @@
 <template>
   <div id="app" class="el-row" >
-    <Login class="login_form"/>
+    <router-link to="/login" >login</router-link>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld'
-import Login from './components/Login'
+import Login from './components/注册登录模块/Login'
 
 export default {
   name: 'App',
@@ -17,18 +18,8 @@ export default {
 </script>
 
 <style>
-body{
-  background-image:url('./components/img/bg_login.jpeg')
-}
-  .login_form{
-    background: rgba(255, 255, 255, 0.28);
-    border-radius:10px;
-    position: relative;
-    width: 420px;
-    max-width: 100%;
-    padding: 0px 35px 0;
-    margin: 0 auto;
-    overflow: hidden;
+  body{
+    background-image:url('./components/img/bg_login.jpeg')
   }
 
 </style>
