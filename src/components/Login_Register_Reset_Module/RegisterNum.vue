@@ -2,36 +2,84 @@
   <div class="el-row">
     <div class="">注册账号</div>
     <div class="el-col-20 el-col-offset-0">
-      <el-form :model="ruleForm2" status-icon :rules="rules" ref="ruleForm2" label-width="100px" class="demo-ruleForm">
+      <el-form :model="registerForm" status-icon :rules="rules" ref="registerForm" label-width="100px"
+               class="demo-ruleForm">
         <el-form-item label="用户名" prop="username">
-          <el-input type="text" v-model="ruleForm2.username"></el-input>
+          <el-input type="text" v-model="registerForm.username"></el-input>
         </el-form-item>
         <el-form-item label="密码" prop="pass">
-          <el-input type="password" v-model="ruleForm2.pass" auto-complete="off"></el-input>
+          <el-input type="password" v-model="registerForm.pass" auto-complete="off"></el-input>
         </el-form-item>
         <el-form-item label="确认密码" prop="checkPass">
-          <el-input type="password" v-model="ruleForm2.checkPass" auto-complete="off"></el-input>
+          <el-input type="password" v-model="registerForm.checkPass" auto-complete="off"></el-input>
         </el-form-item>
         <el-form-item prop="email" label="邮箱">
-          <el-input v-model="ruleForm2.email"></el-input>
+          <el-input v-model="registerForm.email"></el-input>
         </el-form-item>
-        <el-form-item>
-          <el-button type="primary" @click="submitForm('ruleForm2')">注册</el-button>
-          <el-button @click="resetForm('ruleForm2')">重置</el-button>
+        <el-form-item prop="validateCode" label="验证码">
+          <el-input v-model="registerForm.validateCode"></el-input>
+          <div class="code" @click="refreshCode">
+            <ValidateCode :identifyCode="identifyCode"></ValidateCode>
+          </div>
         </el-form-item>
 
+
+        <el-form-item>
+          <el-button type="primary" @click="submitForm('registerForm')">注册</el-button>
+          <el-button @click="resetForm('registerForm')">重置</el-button>
+        </el-form-item>
       </el-form>
     </div>
   </div>
 </template>
 
 <script>
+
+  import ValidateCode from './ValidateCode'
   export default {
     name: 'RegisterNum',
+    components: {ValidateCode},
     data () {
+      var validateUser = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error('请输入用户名'))
+        } else {
+          /**
+           * 进行ajax检查用户名是否已存在
+           * if(判断用户名是否已存在){
+           * 存在提醒用户
+           *     callback(new Error(‘用户名已存在’))
+           * }else{
+           *     callback()
+           * }
+           */
+          callback()
+        }
+      }
+      var validatePass = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error('请输入密码'))
+        } else {
+          if (this.registerForm.checkPass !== '') {
+            this.$refs.registerForm.validateField('checkPass')
+          }
+          callback()
+        }
+      }
+      var validatePass2 = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error('请再次输入密码'))
+        } else if (value !== this.registerForm.pass) {
+          callback(new Error('两次输入密码不一致!'))
+        } else {
+          callback()
+        }
+      }
       return {
-        ruleForm2: {
-          username:'',
+        identifyCodes: '1234567890',
+        validateCode: '',
+        registerForm: {
+          username: '',
           pass: '',
           checkPass: '',
           email: ''
@@ -43,33 +91,20 @@
           checkPass: [
             {validator: validatePass2, trigger: 'blur'}
           ],
-          email:[
-            { required: true, message: '请输入邮箱地址', trigger: 'blur' },
-            { type: 'email', message: '请输入正确的邮箱地址', trigger: 'blur,change' }
+          username: [
+            {validator: validateUser, trigger: 'blur'}
+          ],
+          email: [
+            {required: true, message: '请输入邮箱地址', trigger: 'blur'},
+            {type: 'email', message: '请输入正确的邮箱地址', trigger: 'blur,change'}
           ]
 
         }
       }
-      var validatePass = (rule, value, callback) => {
-        if (value === '') {
-          callback(new Error('请输入密码'))
-        } else {
-          if (this.ruleForm2.checkPass !== '') {
-            this.$refs.ruleForm2.validateField('checkPass')
-          }
-          callback()
-        }
-      };
-      var validatePass2 = (rule, value, callback) => {
-        if (value === '') {
-          callback(new Error('请再次输入密码'))
-        } else if (value !== this.ruleForm2.pass) {
-          callback(new Error('两次输入密码不一致!'))
-        } else {
-          callback()
-        }
-      };
-
+    },
+    mounted () {
+      this.identifyCode = ''
+      this.makeCode(this.identifyCodes, 4)
     },
     methods: {
       submitForm (formName) {
@@ -85,10 +120,30 @@
       resetForm (formName) {
         this.$refs[formName].resetFields()
       }
+    },
+    randomNum(min, max) {
+      return Math.floor(Math.random() * (max - min) + min);
+    },
+    refreshCode() {
+      this.identifyCode = "";
+      this.makeCode(this.identifyCodes, 4);
+    },
+    makeCode(o, l) {
+      for (let i = 0; i < l; i++) {
+        this.identifyCode += this.identifyCodes[
+          this.randomNum(0, this.identifyCodes.length)
+          ];
+      }
+      console.log(this.identifyCode);//验证码
     }
   }
 </script>
 
 <style scoped>
-
+  .code {
+    margin: 0 auto;
+    width: 114px;
+    height: 40px;
+    border: 1px solid red;
+  }
 </style>

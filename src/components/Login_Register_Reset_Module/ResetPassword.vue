@@ -35,20 +35,6 @@
   export default {
     name: 'ResetPassword',
     data () {
-      return {
-        resetPasswordForm:{
-          password: '',
-          password2: '',
-        },
-        rules: {
-          password: [
-            {validator: validatePass, trigger: 'blur'}
-          ],
-          password2: [
-            {validator: validatePass2, trigger: 'blur'}
-          ],
-        }
-      }
       var validatePass = (rule, value, callback) => {
         if (value === '') {
           callback(new Error('请输入密码'))
@@ -68,6 +54,21 @@
           callback()
         }
       };
+      return {
+        resetPasswordForm:{
+          password: '',
+          password2: '',
+        },
+        rules: {
+          password: [
+            {validator: validatePass, trigger: 'blur'}
+          ],
+          password2: [
+            {validator: validatePass2, trigger: 'blur'}
+          ],
+        }
+      }
+
     },
     methods: {
       submitForm(formName) {

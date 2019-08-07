@@ -2,10 +2,10 @@
   <div class="el-row">
 
 
-      <div class="login_form" style="margin-top: 140px">
-        <router-view></router-view>
-        <div v-show="loginFormStaut">
-        <form class="el-row" action="" method="post"  >
+    <div class="login_form" style="margin-top: 140px">
+      <router-view></router-view>
+      <div v-show="loginFormStaut">
+        <form class="el-row" action="" method="post">
           <h2>
             <span>登&nbsp;&nbsp;&nbsp;&nbsp;录</span>
           </h2>
@@ -28,15 +28,16 @@
           <span>
             <el-switch v-model="password_status" active-color="#13ce66"></el-switch>
           </span>
-          <span class="font_color" >
+          <span class="font_color">
               记住密码
           </span>
         </span>
             <span class="el-col-push-4">
 <!--          <el-link  :underline="false" href="" @click.prevent="forgetPassword">忘记密码?</el-link>-->
-            <router-link to="/loginNum/forgetPassword" class="forget_Password_color" @click.native="changeFormStatu(false)">忘记密码?</router-link>
+            <router-link to="/loginNum/forgetPassword" class="forget_Password_color"
+                         @click.native="changeFormStatu(false)">忘记密码?</router-link>
               &nbsp;
-<!--              <el-link type="" :underline="false" href="" @click.prevent="registerNum" >立即注册</el-link>-->
+              <!--              <el-link type="" :underline="false" href="" @click.prevent="registerNum" >立即注册</el-link>-->
             <router-link to="/loginNum/registerNum" class="register_Num_color" @click.native="changeFormStatu(false)">立即注册</router-link>
         </span>
 
@@ -95,18 +96,49 @@
         //
         // })
       },
-      changeFormStatu(value){
-        this.loginFormStaut=value
+      changeFormStatu (value) {
+        this.loginFormStaut = value
+      },
+      goBack(){
+        this.$router.replace({path: '/'});
+        //replace替换原路由，作用是避免回退死循环
+      },
+      destroyed(){
+
+        window.removeEventListener('popstate', this.returns, false);
       },
 
-
+      returns(){
+        // 判断当前路径
+        if (this.$route.path==='/loginNum') {
+          this.loginFormStaut=true
+        }
+      }
     },
+
     mounted () {
-      this.changeFormStatu(true)
+      //监听浏览器返回键
+      if (window.history && window.history.pushState) {
+        history.pushState(null, null, document.URL);
+        window.addEventListener('popstate', this.returns, false);
+      }
+
+      if (this.$route.path.indexOf('registerNum') > 0 ||
+        this.$route.path.indexOf('resetPassword') > 0 ||
+        this.$route.path.indexOf('forgetPassword') > 0) {
+        // alert(this.$route.path)
+        this.changeFormStatu(false)
+      } else if (this.$route.path==='loginNum') {
+        // alert(this.$route.path)
+        this.changeFormStatu(true)
+      }
     },
     components: {
       RegisterNum,
       axios
+    },
+    watch: {
+
     }
 
   }
