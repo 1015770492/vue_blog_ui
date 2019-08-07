@@ -1,6 +1,6 @@
 <template>
   <div class="el-row">
-    <div class="content login_form" style="margin-top: 140px">
+    <div class="content login_form" >
       <form class="el-row" action="" method="post">
         <h2>
           <span>忘&nbsp;&nbsp;记&nbsp;&nbsp;密&nbsp;&nbsp;码</span>

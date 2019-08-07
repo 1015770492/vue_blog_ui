@@ -1,7 +1,7 @@
 <template>
   <div class="el-row">
     <div class="content login_form" style="margin-top: 140px">
-      <form :model="resetPasswordForm" status-icon :rules="rules" ref="resetPasswordForm" class="el-row" action="" method="post">
+      <form :model="resetPasswordForm" status-icon :rules="rules" ref="resetPasswordForm" class="el-row demo-ruleForm" action="" method="post" >
         <h2>
           <span>重&nbsp;&nbsp;置&nbsp;&nbsp;密&nbsp;&nbsp;码</span>
         </h2>
@@ -47,7 +47,6 @@
           password2: [
             {validator: validatePass2, trigger: 'blur'}
           ],
-
         }
       }
       var validatePass = (rule, value, callback) => {

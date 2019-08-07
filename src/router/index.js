@@ -3,10 +3,10 @@
 */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Login from '../components/注册登录模块/Login'
-import RegisterNum from '../components/注册登录模块/RegisterNum'
-import ForgetPassword from '../components/注册登录模块/ForgetPassword'
-import ResetPassword from '../components/注册登录模块/ResetPassword'
+import LoginNum from '../components/Login_Register_Reset_Module/LoginNum'
+import RegisterNum from '../components/Login_Register_Reset_Module/RegisterNum'
+import ForgetPassword from '../components/Login_Register_Reset_Module/ForgetPassword'
+import ResetPassword from '../components/Login_Register_Reset_Module/ResetPassword'
 
 Vue.use(VueRouter)
 
@@ -14,27 +14,27 @@ Vue.use(VueRouter)
 export default new VueRouter({
   routes:[
     {
-      path:'/login',
-      components:Login,
+      path:'/',
+      redirect: '/loginNum'
+    },
+    {
+      path:'/loginNum',
+      component:LoginNum,
       children:[
         {
-          path:'registerNum',
-          components:RegisterNum
+          path:'/loginNum/registerNum',
+          component:RegisterNum
         },{
-          path:'forgetPassword',
-          components:ForgetPassword,
+          path:'/loginNum/forgetPassword',
+          component:ForgetPassword,
           children:[
             {
-              path:'resetPassword',
-              components:ResetPassword
+              path:'/loginNum/forgetPassword/resetPassword',
+              component:ResetPassword
             },
           ]
         }
       ]
     },
-    {
-      path:'/',
-      redirect:'/login'
-    }
   ]
 })
