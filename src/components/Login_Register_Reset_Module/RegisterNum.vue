@@ -91,7 +91,7 @@
       var validateCode=(rule, value, callback)=>{
         if (value === '') {
           callback(new Error('请输入验证码'))
-        } else if (value !== this.identifyCodes) {
+        } else if (value !== this.identifyCode) {
           callback(new Error('验证码不正确!'))
         } else {
           callback()
@@ -99,7 +99,7 @@
       }
       return {
         identifyCodes: '1234567890',//生成的验证码图片
-        identifyCode: '1234567890',//生成的验证码图片
+        identifyCode: '',//生成的验证码图片
         validateCode: '',// 输入的验证码
         registerForm: {
           username: '',

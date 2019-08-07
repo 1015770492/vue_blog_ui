@@ -1,19 +1,6 @@
 <template>
   <div class="el-row">
     <div class="content login_form" >
-<!--      <form class="" action="" >-->
-<!--        -->
-
-<!--        <div class="el-col-18 el-col-offset-3 div_margin">-->
-<!--          <el-input-->
-<!--            placeholder="请输入账号/邮箱/手机号"-->
-<!--            v-model="username">-->
-<!--          </el-input>-->
-<!--        </div>-->
-<!--        <div>-->
-<!--          -->
-<!--        </div>-->
-<!--      </form>-->
       <el-form :model="registerForm" status-icon :rules="rules" ref="registerForm" label-width="100px"
                class="demo-ruleForm el-row" method="post">
         <div class="el-col-18 el-col-offset-3">
