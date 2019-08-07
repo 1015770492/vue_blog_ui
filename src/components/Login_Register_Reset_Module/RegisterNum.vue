@@ -1,6 +1,10 @@
 <template>
   <div class="el-row">
-    <div class="">注册账号</div>
+    <div class="el-row">
+      <h2>
+        注册账号
+      </h2>
+    </div>
     <div class="el-col-20 el-col-offset-0">
       <el-form :model="registerForm" status-icon :rules="rules" ref="registerForm" label-width="100px"
                class="demo-ruleForm">
@@ -19,11 +23,10 @@
         <el-form-item prop="validateCode" label="验证码">
           <el-input v-model="registerForm.validateCode"></el-input>
           <div class="code" @click="refreshCode">
+            <!--  生成的验证码  -->
             <ValidateCode :identifyCode="identifyCode"></ValidateCode>
           </div>
         </el-form-item>
-
-
         <el-form-item>
           <el-button type="primary" @click="submitForm('registerForm')">注册</el-button>
           <el-button @click="resetForm('registerForm')">重置</el-button>
@@ -75,28 +78,42 @@
           callback()
         }
       }
+      // 校验验证码
+      var validateCode=(rule, value, callback)=>{
+        if (value === '') {
+          callback(new Error('请输入验证码'))
+        } else if (value !== this.identifyCodes) {
+          callback(new Error('验证码不正确!'))
+        } else {
+          callback()
+        }
+      }
       return {
-        identifyCodes: '1234567890',
-        validateCode: '',
+        identifyCodes: '1234567890',//生成的验证码图片
+        validateCode: '',// 输入的验证码
         registerForm: {
           username: '',
           pass: '',
           checkPass: '',
-          email: ''
+          email: '',
+
         },
         rules: {
           pass: [
-            {validator: validatePass, trigger: 'blur'}
+            {required: true,validator: validatePass, trigger: 'blur'}
           ],
           checkPass: [
-            {validator: validatePass2, trigger: 'blur'}
+            {required: true,validator: validatePass2, trigger: 'blur'}
           ],
           username: [
-            {validator: validateUser, trigger: 'blur'}
+            {required: true,validator: validateUser, trigger: 'blur'}
           ],
           email: [
             {required: true, message: '请输入邮箱地址', trigger: 'blur'},
             {type: 'email', message: '请输入正确的邮箱地址', trigger: 'blur,change'}
+          ],
+          validateCode: [
+            {required: true, validator: validateCode, trigger: 'blur'},
           ]
 
         }
@@ -124,18 +141,20 @@
     randomNum(min, max) {
       return Math.floor(Math.random() * (max - min) + min);
     },
+    //刷新验证码
     refreshCode() {
       this.identifyCode = "";
       this.makeCode(this.identifyCodes, 4);
     },
+    // 生成验证码
     makeCode(o, l) {
       for (let i = 0; i < l; i++) {
         this.identifyCode += this.identifyCodes[
           this.randomNum(0, this.identifyCodes.length)
           ];
       }
-      console.log(this.identifyCode);//验证码
-    }
+      console.log(this.identifyCode);//控制台输出 生成的验证码
+    },
   }
 </script>
 

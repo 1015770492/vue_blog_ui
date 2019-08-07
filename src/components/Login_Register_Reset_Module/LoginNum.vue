@@ -34,11 +34,10 @@
         </span>
             <span class="el-col-push-4">
 <!--          <el-link  :underline="false" href="" @click.prevent="forgetPassword">忘记密码?</el-link>-->
-            <router-link to="/loginNum/forgetPassword" class="forget_Password_color"
-                         @click.native="changeFormStatu(false)">忘记密码?</router-link>
+            <router-link to="/loginNum/forgetPassword" class="forget_Password_color">忘记密码?</router-link>
               &nbsp;
               <!--              <el-link type="" :underline="false" href="" @click.prevent="registerNum" >立即注册</el-link>-->
-            <router-link to="/loginNum/registerNum" class="register_Num_color" @click.native="changeFormStatu(false)">立即注册</router-link>
+            <router-link to="/loginNum/registerNum" class="register_Num_color">立即注册</router-link>
         </span>
 
           </div>
@@ -96,41 +95,17 @@
         //
         // })
       },
-      changeFormStatu (value) {
-        this.loginFormStaut = value
-      },
-      goBack(){
-        this.$router.replace({path: '/'});
-        //replace替换原路由，作用是避免回退死循环
-      },
-      destroyed(){
 
-        window.removeEventListener('popstate', this.returns, false);
-      },
-
-      returns(){
-        // 判断当前路径
-        if (this.$route.path==='/loginNum') {
-          this.loginFormStaut=true
-        }
-      }
     },
 
     mounted () {
-      //监听浏览器返回键
-      if (window.history && window.history.pushState) {
-        history.pushState(null, null, document.URL);
-        window.addEventListener('popstate', this.returns, false);
-      }
-
-      if (this.$route.path.indexOf('registerNum') > 0 ||
-        this.$route.path.indexOf('resetPassword') > 0 ||
-        this.$route.path.indexOf('forgetPassword') > 0) {
-        // alert(this.$route.path)
-        this.changeFormStatu(false)
-      } else if (this.$route.path==='loginNum') {
-        // alert(this.$route.path)
-        this.changeFormStatu(true)
+      if(this.$route.path=='/loginNum'){
+        // alert("ok")
+        // 登录页面显示登录表单
+        this.loginFormStaut=true
+      }else {
+        //其它页面隐藏登录表单，显示其它组件路由
+        this.loginFormStaut=false
       }
     },
     components: {
@@ -138,7 +113,17 @@
       axios
     },
     watch: {
-
+      $route(to, from) {
+        console.log(this.$route.path);
+        if(this.$route.path=='/loginNum'){
+          // alert("ok")
+          // 登录页面显示登录表单
+          this.loginFormStaut=true
+        }else {
+          //其它页面隐藏登录表单，显示其它组件路由
+          this.loginFormStaut=false
+        }
+      }
     }
 
   }
