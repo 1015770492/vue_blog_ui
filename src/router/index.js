@@ -1,22 +1,29 @@
 /*
 路由器模块
 */
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import LoginNum from '../components/Login_Register_Reset_Module/LoginNum'
-import RegisterNum from '../components/Login_Register_Reset_Module/RegisterNum'
-import ForgetPassword from '../components/Login_Register_Reset_Module/ForgetPassword'
-import ResetPassword from '../components/Login_Register_Reset_Module/ResetPassword'
+import Vue from 'vue'  // vue
+import VueRouter from 'vue-router'  // 路由器
+import LoginNum from '../components/Login_Register_Reset_Module/LoginNum'  // 登录账号
+import RegisterNum from '../components/Login_Register_Reset_Module/RegisterNum' //注册账号
+import ForgetPassword from '../components/Login_Register_Reset_Module/ForgetPassword'  //忘记密码
+import ResetPassword from '../components/Login_Register_Reset_Module/ResetPassword'  //重置密码
+import HelloWorld from '../components/HelloWorld'   //首页显示
 
-Vue.use(VueRouter)
+Vue.use(VueRouter)  // 注册组件使用路由器
 
 
 export default new VueRouter({
   routes:[
+    /*
+      首页重定向路由
+     */
     {
       path:'/',
       redirect: '/loginNum'
     },
+    /*
+      注册，登录 模块组件路由
+     */
     {
       path:'/loginNum',
       component:LoginNum,
@@ -36,5 +43,12 @@ export default new VueRouter({
         }
       ]
     },
+    /*
+      首页组件 路由
+     */
+    {
+      path:'/helloWorld',
+      component:HelloWorld
+    }
   ]
 })

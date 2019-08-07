@@ -1,7 +1,5 @@
 <template>
-  <div class="el-row">
-
-
+  <div class="el-row body"  @mousewheel.prevent>
     <div class="login_form" style="margin-top: 140px">
       <router-view></router-view>
       <div v-show="loginFormStaut">
@@ -60,7 +58,6 @@
       </div>
     </div>
 
-
     <div class="auth" style="margin-top: 35px">
       <hr>
       <div class="el-col-18 el-col-offset-3">
@@ -70,6 +67,7 @@
 
   </div>
 </template>
+
 
 <script>
   import RegisterNum from './RegisterNum'
@@ -126,9 +124,17 @@
     }
 
   }
+
+
 </script>
 
 <style scoped>
+  .body{
+    height:100% ;
+    width:100%;
+    position:absolute;
+    background-image: url('../../../static/img/bg_login.jpeg');
+  }
   span {
     vertical-align: middle;
   }

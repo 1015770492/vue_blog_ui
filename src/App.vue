@@ -1,24 +1,32 @@
 <template>
-  <div id="app" class="el-row">
-    <router-view></router-view>
+  <div id="app">
+<!--    <router-view></router-view>-->
+    <AdminMeau/>
+<!--    <Login/>-->
   </div>
 </template>
 
 <script>
-  // import HelloWorld from './components/HelloWorld'
-  // import Login from './components/Login_Register_Reset_Module/LoginNum'
+  import HelloWorld from './components/HelloWorld'
+  import AdminMeau from './components/Admin_Module/AdminMeau'
 
   export default {
     name: 'App',
-    // components: {
-    //   Login
-    // }
+    components: {
+      HelloWorld,
+      AdminMeau
+    }
   }
+
 </script>
 
 <style>
-  body {
-    background-image: url('./components/img/bg_login.jpeg')
+  #app{
+    height:100% ; width:100%;
+    position:absolute;
   }
 
+  body{
+    margin: 0 auto;
+  }
 </style>
