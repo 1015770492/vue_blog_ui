@@ -17,12 +17,21 @@
         <el-form-item label="确认密码" prop="checkPass">
           <el-input type="password" v-model="registerForm.checkPass" auto-complete="off"></el-input>
         </el-form-item>
-        <el-form-item prop="email" label="邮箱">
+        <el-form-item
+          prop="email"
+          label="邮箱"
+          :rules="[
+                    { required: true, message: '请输入邮箱地址', trigger: 'blur' },
+                    { type: 'email', message: '请输入正确的邮箱地址', trigger: ['blur', 'change'] }
+                  ]">
           <el-input v-model="registerForm.email"></el-input>
         </el-form-item>
         <el-form-item prop="validateCode" label="验证码">
+          <div class="el-col-12">
+
           <el-input v-model="registerForm.validateCode"></el-input>
-          <div class="code" @click="refreshCode">
+          </div>
+          <div class="code el-col-10 el-col-push-1" @click="refreshCode">
             <!--  生成的验证码  -->
             <ValidateCode :identifyCode="identifyCode"></ValidateCode>
           </div>
@@ -90,13 +99,13 @@
       }
       return {
         identifyCodes: '1234567890',//生成的验证码图片
+        identifyCode: '1234567890',//生成的验证码图片
         validateCode: '',// 输入的验证码
         registerForm: {
           username: '',
           pass: '',
           checkPass: '',
           email: '',
-
         },
         rules: {
           pass: [
@@ -107,10 +116,6 @@
           ],
           username: [
             {required: true,validator: validateUser, trigger: 'blur'}
-          ],
-          email: [
-            {required: true, message: '请输入邮箱地址', trigger: 'blur'},
-            {type: 'email', message: '请输入正确的邮箱地址', trigger: 'blur,change'}
           ],
           validateCode: [
             {required: true, validator: validateCode, trigger: 'blur'},
@@ -136,25 +141,28 @@
       },
       resetForm (formName) {
         this.$refs[formName].resetFields()
-      }
-    },
-    randomNum(min, max) {
-      return Math.floor(Math.random() * (max - min) + min);
-    },
-    //刷新验证码
-    refreshCode() {
-      this.identifyCode = "";
-      this.makeCode(this.identifyCodes, 4);
-    },
-    // 生成验证码
-    makeCode(o, l) {
-      for (let i = 0; i < l; i++) {
-        this.identifyCode += this.identifyCodes[
-          this.randomNum(0, this.identifyCodes.length)
-          ];
-      }
-      console.log(this.identifyCode);//控制台输出 生成的验证码
-    },
+      },
+      //刷新验证码
+      refreshCode() {
+        this.identifyCode = "";
+        this.makeCode(this.identifyCodes, 4);
+      },
+      // 生成验证码
+      makeCode(o, l) {
+        for (let i = 0; i < l; i++) {
+          this.identifyCode += this.identifyCodes[
+            this.randomNum(0, this.identifyCodes.length)
+            ];
+        }
+        console.log(this.identifyCode);//控制台输出 生成的验证码
+      },
+      randomNum(min, max) {
+        return Math.floor(Math.random() * (max - min) + min);
+      },
+
+    }
+
+
   }
 </script>
 

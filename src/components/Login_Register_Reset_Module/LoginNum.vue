@@ -83,7 +83,6 @@
         password: '',
         password_status: false,
         loginFormStaut: true,
-
       }
     },
     methods: {
