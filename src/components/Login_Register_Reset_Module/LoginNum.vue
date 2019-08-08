@@ -43,16 +43,18 @@
             <el-button class="el-col-24" type="primary" @click="check_login">登录</el-button>
           </div>
         </form>
-        <div class="font_color">
-          第三方登录
-        </div>
-        <hr>
+
+        <el-divider class="font_color">
+          <span class="font_color">
+            第三方登录
+          </span>
+        </el-divider>
         <div>
           <el-link type="success">
-            QQ
+            <img src="../../../static/img/qq_24px.png" alt="">
           </el-link>
           <el-link type="default">
-            微信
+            <img src="../../../static/img/Wechat_24px.png" width="26px" alt="">
           </el-link>
         </div>
       </div>
@@ -113,6 +115,7 @@
       $route(to, from) {
         console.log(this.$route.path);
         if(this.$route.path=='/loginNum'){
+
           // alert("ok")
           // 登录页面显示登录表单
           this.loginFormStaut=true
@@ -149,6 +152,9 @@
 
   .font_color {
     color: rgba(95, 95, 95, 0.85);
+  }
+  .el-divider__text{
+    background-color:transparent;  /*背景透明*/
   }
 
   .auth {

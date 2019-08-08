@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-<!--    <router-view></router-view>-->
-    <AdminMeau/>
+    <router-view></router-view>
+<!--    <AdminMeau/>-->
 <!--    <Login/>-->
   </div>
 </template>

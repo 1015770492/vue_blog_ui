@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    首页
+<!--    <router-link to="/loginNum">登录</router-link>-->
   </div>
 </template>
 
@@ -12,19 +12,10 @@
     name: 'HelloWorld',
 
     data() {
-      return {
-        drawer: false,
-        direction: 'rtl',
-      };
+
     },
     methods: {
-      handleClose(done) {
-        this.$confirm('确认关闭？')
-          .then(_ => {
-            done();
-          })
-          .catch(_ => {});
-      }
+
     }
   };
 </script>
