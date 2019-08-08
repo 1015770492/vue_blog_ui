@@ -1,8 +1,8 @@
 <template>
   <div class="el-row body"  @mousewheel.prevent>
     <div class="login_form" style="margin-top: 140px">
-      <router-view></router-view>
-      <div v-show="loginFormStaut">
+      <router-view v-show="!loginFormStaut"></router-view>
+      <div v-show="loginFormStaut" v-model="loginFormStaut">
         <form class="el-row" action="" method="post">
           <h2>
             <span>登&nbsp;&nbsp;&nbsp;&nbsp;录</span>
@@ -93,6 +93,7 @@
         // axios.get().catch(error=>{
         //
         // })
+        this.$router.replace('/adminMeau')
       },
 
     },
@@ -115,7 +116,6 @@
       $route(to, from) {
         console.log(this.$route.path);
         if(this.$route.path=='/loginNum'){
-
           // alert("ok")
           // 登录页面显示登录表单
           this.loginFormStaut=true

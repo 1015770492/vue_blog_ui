@@ -2,118 +2,140 @@
   <div class="hello">
     <!--    顶栏导航栏-->
 
-    <el-container>
-      <el-menu style="height: 61px;width: 100%"
+    <el-container class="el-row" :gutter="0">
+      <el-menu style="height: 61px;"
                ref="topCollapse"
-               class="el-menu-demo"
+               class="el-menu-demo el-col-24"
                mode="horizontal"
                @select="handleSelect"
                background-color="#545c64"
                text-color="#fff"
                active-text-color="#ffd04b">
-        <el-menu-item class="el-col-1 el-icon-s-unfold" style="font-size: 25px;width: 61px" v-model="isCollapse"
-                      @click="changeIsCollapse"></el-menu-item>
+        <el-menu-item class="el-col-md-1 el-col-md-offset-0 el-col-sm-2 el-col-sm-offset-0  el-col-xs-2 el-col-xs-offset-0 el-icon-s-unfold" style="font-size: 20px;" v-model="isCollapse"
+                      @click="changeIsCollapse">
+        </el-menu-item>
 
-        <el-submenu index="1" class="el-col-1 el-col-push-21">
-          <template slot="title">
-            <span>
-              <el-avatar src="../../../static/img/头像.jpg"></el-avatar>
-            </span>花生鼠
-          </template>
-          <el-menu-item index="1-1">个人信息</el-menu-item>
-          <el-menu-item index="1-2">安全中心</el-menu-item>
-          <el-menu-item index="1-3">退出登录</el-menu-item>
-        </el-submenu>
+          <div class="el-col-md-4 el-col-md-offset-19 el-col-sm-5 el-col-sm-offset-17 el-col-xs-8 el-col-xs-offset-14 el-dropdown_style" >
+            <el-dropdown>
+              <span class="el-dropdown-link">
+                <span>
+                 <el-badge is-dot class="item1"></el-badge>
+                 <el-avatar src="../../../static/img/头像.jpg" class="el-avatar" ></el-avatar>
+                </span>
+                <span  class="item2" >
+
+                  {{user.name|ellipsis}}<i class="el-icon-caret-bottom el-icon--right"></i>
+                </span>
+              </span>
+              <el-dropdown-menu slot="dropdown" class="el-dropdown-menu">
+                <el-dropdown-item class="el-dropdown-item"><el-link type="info" @click.prevent="userInfo">个人信息</el-link></el-dropdown-item>
+                <el-dropdown-item class="el-dropdown-item"><el-link type="info" @click.prevent="userMessage">消息</el-link><el-badge class="mark" :value="12" /></el-dropdown-item>
+                <el-dropdown-item class="el-dropdown-item"><el-link type="info" @click.prevent="sercurityCenter">安全中心</el-link><el-badge class="mark" :value="3" /></el-dropdown-item>
+                <el-dropdown-item class="el-dropdown-item"><el-link type="danger" @click.prevent="logoout">退出登录</el-link></el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+          </div>
+
+
       </el-menu>
     </el-container>
-    <el-container>
+
+
       <!--    侧边导航栏-->
+    <el-container>
       <span class="el-col-offset-0">
       <el-container>
-        <el-menu default-active="1-4-1" style="height: calc(100vh - 61px);margin-top: -1px"
+        <el-menu default-active="1-1" style="height: calc(100vh - 60px);margin-top:-1px"
+                 :unique-opened="uniqueOpened"
                  class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse"
                  background-color="#545c64"
                  text-color="#fff"
                  active-text-color="#ffd04b">
-        <el-submenu index="1">
+
+        <el-submenu index="1" style="margin-top: 1px">
           <template slot="title">
             <i class="el-icon-location"></i>
             <span slot="title">仪表盘</span>
           </template>
           <el-menu-item-group>
-            <span slot="title">分组一</span>
-            <el-menu-item index="1-1">选项1</el-menu-item>
+            <el-menu-item index="1-1"><i class="el-icon-s-home"></i>首页</el-menu-item>
+            <el-menu-item index="1-2">选项2</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
 
-          <el-submenu index="2">
+
+        <el-submenu index="2">
           <template slot="title">
             <i class="el-icon-menu"></i>
             <span slot="title">导航二</span>
           </template>
           <el-menu-item-group>
             <span slot="title">分组一</span>
-            <el-menu-item index="1-1">选项1</el-menu-item>
-            <span slot="title">分组2</span>
-            <el-menu-item index="1-1">选项1</el-menu-item>
+            <el-menu-item index="2-1">选项1</el-menu-item>
+            <el-menu-item index="2-2">选项2</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
 
 
 
-
-
-          <el-submenu index="3">
+        <el-submenu index="3">
           <template slot="title">
             <i class="el-icon-document"></i>
-            <span slot="title">文章</span>
+            <span slot="title">文章管理</span>
           </template>
           <el-menu-item-group>
-            <el-menu-item index="3-1">所有文章</el-menu-item>
-            <el-menu-item index="3-2">写文章</el-menu-item>
-            <el-menu-item index="3-3">分类目录</el-menu-item>
-            <el-menu-item index="3-4">标签</el-menu-item>
+            <el-menu-item index="3-1"><i class="el-icon-files"></i>所有文章</el-menu-item>
+            <el-menu-item index="3-2"><i class="el-icon-edit"></i>写文章</el-menu-item>
+            <el-menu-item index="3-3"><i class="el-icon-notebook-2"></i>分类目录</el-menu-item>
+            <el-menu-item index="3-4"><i class="el-icon-s-claim"></i>标签</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
 
 
-        <el-menu-item index="4">
-          <i class="el-icon-s-data"></i>
-          <span slot="title">网站统计</span>
-        </el-menu-item>
-
-          <el-submenu index="5">
+        <el-submenu index="4">
           <template slot="title">
             <i class="el-icon-user"></i>
             <span slot="title">用户管理</span>
           </template>
           <el-menu-item-group>
-            <el-menu-item index="5-1">账号管理</el-menu-item>
-            <el-menu-item index="5-2">权限管理</el-menu-item>
+            <el-menu-item index="4-1"><i class="el-icon-user-solid"></i>账号管理</el-menu-item>
+            <el-menu-item index="4-2"><i class="el-icon-unlock"></i>权限管理</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
+
+
+        <el-submenu index="5">
+          <template slot="title">
+            <i class="el-icon-s-data"></i>
+            <span slot="title">网站统计</span>
+          </template>
+          <el-menu-item-group>
+            <el-menu-item index="5-1"><i class="el-icon-s-custom"></i>用户统计</el-menu-item>
+            <el-menu-item index="5-2"><i class="el-icon-star-off"></i>文章欢迎度</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
 
 
 
+        <el-submenu index="6">
+          <template slot="title">
+            <i class="el-icon-setting"></i>
+            <span slot="title">网站设置</span>
+          </template>
+          <el-menu-item-group>
+            <el-menu-item index="5-1"><i class="el-icon-brush"></i>主题设置</el-menu-item>
+            <el-menu-item index="5-2"><i class="el-icon-chat-dot-square"></i>用户评论设置</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
 
-
-        <el-menu-item index="6">
-          <i class="el-icon-setting"></i>
-          <span slot="title">网站设置</span>
-        </el-menu-item>
 
       </el-menu>
       </el-container>
       </span>
 
       <el-container>
-        <span>
-          <el-container>
             主面板
-
-          </el-container>
-                  <!--        <router-view></router-view>-->
-        </span>
+          <!--        <router-view></router-view>-->
       </el-container>
 
     </el-container>
@@ -130,6 +152,11 @@
 
     data () {
       return {
+        user:{
+          name:'花生鼠花生鼠',
+          username:''
+        },
+        uniqueOpened:true,
         isCollapse: true,
         drawer: false,
         direction: 'ltr',
@@ -147,21 +174,78 @@
       },
       changeIsCollapse () {
         this.isCollapse = !this.isCollapse
+      },
+      logoout(){
+        this.$router.replace('/helloWorld')
+        this.$message({
+          showClose: true,
+          message: '已退出登录',
+          type: 'success'
+        });
+      },
+      userInfo(){
+        this.$router.push('/userInfo')
+      },
+      userMessage(){
+        this.$router.push('/userMessage')
+      },
+      sercurityCenter(){
+        this.$router.push('/securityCenter')
       }
 
     },
-    mounted () {
 
-    },
+    filters: {
+      ellipsis (value) {
+        if (!value) return ''
+        if (value.length > 3) {
+          return value.slice(0,3) + '...'
+        }
+        return value
+      }
+    }
 
   }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  span{
+    border: 0px;
+  }
   .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 200px;
-    /*min-height: 700px;*/
+  }
+  .item1 {
+    position: relative;
+    left: 45px;
+    top: -30px;
+  }
+  .el-avatar{
+    margin-top: 10px
+  }
+  .item2{
+    position: relative;
+    color: white;
+    top: -10px;
+  }
+  .el-dropdown-item{
+    margin-top: 5px;
+    color: white;
+  }
+  .el-dropdown_style{
+    background-color: #545c64;
+    color: white;
+    text-align: right;
+  }
+  .el-dropdown-link {
+    cursor: pointer;
+  }
+  .el-dropdown-menu{
+    margin-top: 5px;
+    border: 0px;
+    color: white;
+    background-color: #545c64;
   }
 
 

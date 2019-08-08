@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-<!--    <router-link to="/loginNum">登录</router-link>-->
+    <router-link to="/loginNum">登录</router-link>
   </div>
 </template>
 
@@ -10,13 +10,6 @@
 <script>
   export default {
     name: 'HelloWorld',
-
-    data() {
-
-    },
-    methods: {
-
-    }
   };
 </script>
 
