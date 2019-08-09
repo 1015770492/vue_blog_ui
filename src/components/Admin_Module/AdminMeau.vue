@@ -125,9 +125,9 @@
             </el-menu-item-group>
           </el-submenu>
 
+          <!--媒体库-->
           <el-submenu index="2">
             <template slot="title">
-<!--              <span class="glyphicon glyphicon-film" style="width: 18px;height: 18px"></span>-->
               <i class="glyphicon glyphicon-film" style="margin-left: 4px;margin-right: 10px"></i>
               <span slot="title">媒体库</span>
             </template>
@@ -144,27 +144,30 @@
                 <i class="glyphicon glyphicon-picture" style="margin-left: 4px;margin-right: 6px"></i>
                 图片
               </el-menu-item>
+              <el-menu-item index="2-3">
+                <i class="glyphicon glyphicon-folder-open" style="margin-left: 4px;margin-right: 6px"></i>
+                文件
+              </el-menu-item>
             </el-menu-item-group>
           </el-submenu>
 
+          <!--文章管理-->
+          <el-submenu index="3">
+            <template slot="title">
+              <i class="el-icon-document"></i>
+              <span slot="title">文章管理</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item index="3-1"><el-link type="info" @click.prevent="allArticle(user.username)"><i
+                class="el-icon-files"></i>所有文章</el-link></el-menu-item>
+              <el-menu-item index="3-2"><i class="el-icon-edit"></i>写文章</el-menu-item>
+              <el-menu-item index="3-3"><i class="el-icon-notebook-2"></i>分类目录</el-menu-item>
+              <el-menu-item index="3-4"><i class="glyphicon glyphicon-tags" style="margin-left: 4px;margin-right: 12px"></i>标签</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
 
-
-        <el-submenu index="3">
-          <template slot="title">
-            <i class="el-icon-document"></i>
-            <span slot="title">文章管理</span>
-          </template>
-          <el-menu-item-group>
-            <el-menu-item index="3-1"><el-link type="info" @click.prevent="allArticle(user.username)"><i
-              class="el-icon-files"></i>所有文章</el-link></el-menu-item>
-            <el-menu-item index="3-2"><i class="el-icon-edit"></i>写文章</el-menu-item>
-            <el-menu-item index="3-3"><i class="el-icon-notebook-2"></i>分类目录</el-menu-item>
-            <el-menu-item index="3-4"><i class="el-icon-s-claim"></i>标签</el-menu-item>
-          </el-menu-item-group>
-        </el-submenu>
-
-
-        <el-submenu index="4">
+          <!--用户管理-->
+          <el-submenu index="4">
           <template slot="title">
             <i class="el-icon-user"></i>
             <span slot="title">用户管理</span>
@@ -175,21 +178,20 @@
           </el-menu-item-group>
         </el-submenu>
 
+          <!--网站统计-->
+          <el-submenu index="5">
+            <template slot="title">
+              <i class="el-icon-s-data"></i>
+              <span slot="title">网站统计</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item index="5-1"><i class="el-icon-s-custom"></i>用户统计</el-menu-item>
+              <el-menu-item index="5-2"><i class="el-icon-star-off"></i>文章欢迎度</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
 
-        <el-submenu index="5">
-          <template slot="title">
-            <i class="el-icon-s-data"></i>
-            <span slot="title">网站统计</span>
-          </template>
-          <el-menu-item-group>
-            <el-menu-item index="5-1"><i class="el-icon-s-custom"></i>用户统计</el-menu-item>
-            <el-menu-item index="5-2"><i class="el-icon-star-off"></i>文章欢迎度</el-menu-item>
-          </el-menu-item-group>
-        </el-submenu>
-
-
-
-        <el-submenu index="6">
+          <!--网站设置-->
+          <el-submenu index="6">
           <template slot="title">
             <i class="el-icon-setting"></i>
             <span slot="title">网站设置</span>
