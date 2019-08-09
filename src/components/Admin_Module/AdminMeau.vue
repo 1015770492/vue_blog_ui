@@ -127,12 +127,23 @@
 
           <el-submenu index="2">
             <template slot="title">
-              <i class="el-icon-menu"></i>
-              <span slot="title">导航二</span>
+<!--              <span class="glyphicon glyphicon-film" style="width: 18px;height: 18px"></span>-->
+              <i class="glyphicon glyphicon-film" style="margin-left: 4px;margin-right: 10px"></i>
+              <span slot="title">媒体库</span>
             </template>
             <el-menu-item-group>
-              <el-menu-item index="2-1">选项1</el-menu-item>
-              <el-menu-item index="2-2">选项2</el-menu-item>
+              <el-menu-item index="2-1">
+                <i class="glyphicon glyphicon-music" style="margin-left: 4px;margin-right: 6px"></i>
+                音乐
+              </el-menu-item>
+              <el-menu-item index="2-2">
+                <i class="glyphicon glyphicon-play-circle" style="margin-left: 4px;margin-right: 6px"></i>
+                视频
+              </el-menu-item>
+              <el-menu-item index="2-3">
+                <i class="glyphicon glyphicon-picture" style="margin-left: 4px;margin-right: 6px"></i>
+                图片
+              </el-menu-item>
             </el-menu-item-group>
           </el-submenu>
 
@@ -184,7 +195,14 @@
             <span slot="title">网站设置</span>
           </template>
           <el-menu-item-group>
-            <el-menu-item index="5-1"><i class="el-icon-brush"></i>主题设置</el-menu-item>
+            <el-menu-item index="5-1">
+              <span class="i" >
+                <img style="color: #909399" src="../../../static/img/主题.png" height="18" width="18"/>
+              </span>
+              <span>
+                主题设置
+              </span>
+            </el-menu-item>
             <el-menu-item index="5-2"><i class="el-icon-chat-dot-square"></i>用户评论设置</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
@@ -282,6 +300,10 @@
     background-color: transparent;
   }
 
+  .i{
+    margin-left: 2px;
+    margin-right: 6px;
+  }
   span {
     border: 0px;
     margin: 0 0 0 0;
