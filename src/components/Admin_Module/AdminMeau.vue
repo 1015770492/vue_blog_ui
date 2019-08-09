@@ -39,24 +39,33 @@
                 <el-dropdown-menu slot="dropdown" class="el-dropdown-menu">
                   <el-dropdown-item class="el-dropdown-item">
 <!--                    <router-link>新建文章</router-link>-->
-                      <el-link :underline="false" type="info" @click.prevent="userInfo">新建文章</el-link>
+                      <el-link :underline="false" type="info" @click.prevent="userInfo">
+                        <i class="el-icon-document"  style="margin-left: 4px;margin-right: 10px;font-size: 18px"></i>文章
+                      </el-link>
                   </el-dropdown-item>
 
                   <el-dropdown-item class="el-dropdown-item">
 <!--                    <router-link>媒体</router-link>-->
-                      <el-link :underline="false" type="info" @click.prevent="userMessage">媒体</el-link>
+                      <el-link :underline="false" type="info" @click.prevent="userMessage">
+                        <i class="glyphicon glyphicon-film" style="margin-left: 4px;margin-right: 10px;font-size: 16px"></i>媒体
+                      </el-link>
                   </el-dropdown-item>
+
+                   <el-dropdown-item class="el-dropdown-item">
+<!--                    <router-link>用户</router-link>-->
+                      <el-link :underline="false" type="info" @click.prevent="logout">
+                        <i class="el-icon-user"  style="margin-left: 4px;margin-right: 10px;font-size: 18px"></i>用户
+                      </el-link>
+                   </el-dropdown-item>
 
                   <el-dropdown-item class="el-dropdown-item">
 <!--                    <router-link>页面</router-link>-->
-                    <el-link :underline="false" type="info" @click.prevent="sercurityCenter">页面</el-link>
-
+                    <el-link :underline="false" type="info" @click.prevent="sercurityCenter">
+                      <i class="el-icon-tickets"  style="margin-left: 4px;margin-right: 10px;font-size: 18px"></i>页面
+                    </el-link>
                   </el-dropdown-item>
 
-                  <el-dropdown-item class="el-dropdown-item">
-<!--                    <router-link>用户</router-link>-->
-                      <el-link :underline="false" type="info" @click.prevent="logout">用户</el-link>
-                  </el-dropdown-item>
+
 
                 </el-dropdown-menu>
               </el-dropdown>
