@@ -2,29 +2,26 @@
   <div class="el-row body"  @mousewheel.prevent>
     <div class="login_form" style="margin-top: 140px">
       <router-view v-show="!loginFormStaut"></router-view>
-      <div v-show="loginFormStaut" v-model="loginFormStaut">
-        <form class="el-row" action="" method="post">
+      <div v-show="loginFormStaut" v-model="loginFormStaut" >
+        <el-form class="el-row" :model="loginForm" status-icon :rules="rules" ref="loginForm" >
           <h2>
             <span>登&nbsp;&nbsp;&nbsp;&nbsp;录</span>
           </h2>
 
           <div class="el-col-18 el-col-offset-3 div_margin">
-            <el-input
-              placeholder="请输入账号"
-              v-model="username">
-            </el-input>
+            <el-form-item  prop="username">
+              <el-input type="text" placeholder="请输入用户名" v-model="loginForm.username"></el-input>
+            </el-form-item>
           </div>
           <div class="el-col-18 el-col-offset-3 div_margin">
-            <el-input
-              type="password"
-              placeholder="请输入密码"
-              v-model="password">
-            </el-input>
+            <el-form-item  prop="password">
+              <el-input type="password" placeholder="请输入密码" v-model="loginForm.password" auto-complete="off"></el-input>
+            </el-form-item>
           </div>
           <div class="el-col-18 el-col-offset-3 div_margin">
         <span class="el-col-offset-0">
           <span>
-            <el-switch v-model="password_status" active-color="#13ce66"></el-switch>
+            <el-switch v-model="loginForm.password_status" active-color="#13ce66"></el-switch>
           </span>
           <span class="font_color">
               记住密码
@@ -42,7 +39,7 @@
           <div class="el-col-18 el-col-offset-3 div_margin">
             <el-button class="el-col-24" type="primary" @click="check_login">登录</el-button>
           </div>
-        </form>
+        </el-form>
 
         <el-divider class="font_color">
           <span class="font_color">
@@ -76,30 +73,71 @@
   import axios from 'axios'
 
   export default {
+
     name: 'login',
     data () {
+      var validateUser = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error('请输入用户名'))
+        } else {
+          if (this.loginForm.password !== '') {
+            this.$refs.loginForm.validateField('username')
+          }
+          callback()
+        }
+      };
+      var validatePass = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error('请输入密码'))
+        } else {
+          if (this.loginForm.password !== '') {
+            this.$refs.loginForm.validateField('password')
+          }
+          callback()
+        }
+      };
+
       return {
-        username: '',
-        password: '',
-        password_status: false,
+        loginForm:{
+          username: '',
+          password: '',
+          password_status: false,
+        },
         loginFormStaut: true,
+        rules:{
+          username: [
+            {required: true,validator: validateUser, trigger: 'blur'}
+          ],
+          password: [
+            {required: true,validator: validatePass, trigger: 'blur'}
+          ],
+
+        }
       }
     },
     methods: {
       check_login () {
+        if(this.loginForm.username!==''&&this.loginForm.password!==''){
+          this.$router.replace('/adminMeau');
+          this.$message({
+            message: '登录成功',
+            type: 'success'
+          });
+        }
         // if (this.password_status){
-        //做缓存
+        // 做缓存
         // }
         // axios.get().catch(error=>{
         //
         // })
-        this.$router.replace('/adminMeau')
       },
+
 
     },
 
     mounted () {
       if(this.$route.path=='/loginNum'){
+        this.$message('用户名密码任意即可登录');
         // alert("ok")
         // 登录页面显示登录表单
         this.loginFormStaut=true
