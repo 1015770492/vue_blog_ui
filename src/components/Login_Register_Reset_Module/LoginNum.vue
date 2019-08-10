@@ -1,25 +1,25 @@
 <template>
   <div class="el-row body"  @mousewheel.prevent>
-    <div class="login_form" style="margin-top: 140px">
-      <router-view v-show="!loginFormStaut"></router-view>
-      <div v-show="loginFormStaut" v-model="loginFormStaut" >
-        <el-form class="el-row" :model="loginForm" status-icon :rules="rules" ref="loginForm" >
-          <h2>
-            <span>登&nbsp;&nbsp;&nbsp;&nbsp;录</span>
-          </h2>
+    <div class="login_form" style="margin-top: 140px;">
+        <router-view v-show="!loginFormStaut"></router-view>
+        <div v-show="loginFormStaut" v-model="loginFormStaut" >
+          <el-form class="el-row" :model="loginForm" status-icon :rules="rules" ref="loginForm" >
+            <h2>
+              <span>登&nbsp;&nbsp;&nbsp;&nbsp;录</span>
+            </h2>
 
-          <div class="el-col-18 el-col-offset-3 div_margin">
-            <el-form-item  prop="username">
-              <el-input type="text" placeholder="请输入用户名" v-model="loginForm.username"></el-input>
-            </el-form-item>
-          </div>
-          <div class="el-col-18 el-col-offset-3 div_margin">
-            <el-form-item  prop="password">
-              <el-input type="password" placeholder="请输入密码" v-model="loginForm.password" auto-complete="off"></el-input>
-            </el-form-item>
-          </div>
-          <div class="el-col-18 el-col-offset-3 div_margin">
-        <span class="el-col-offset-0">
+            <div class="el-col-18 el-col-offset-3 div_margin">
+              <el-form-item  prop="username">
+                <el-input type="text" placeholder="请输入用户名" v-model="loginForm.username"></el-input>
+              </el-form-item>
+            </div>
+            <div class="el-col-18 el-col-offset-3 div_margin">
+              <el-form-item  prop="password">
+                <el-input type="password" placeholder="请输入密码" v-model="loginForm.password" auto-complete="off"></el-input>
+              </el-form-item>
+            </div>
+            <div class="el-col-18 el-col-offset-3 div_margin" style="margin-top: -15px;">
+        <span class="el-col-offset-0" >
           <span>
             <el-switch v-model="loginForm.password_status" active-color="#13ce66"></el-switch>
           </span>
@@ -27,35 +27,36 @@
               记住密码
           </span>
         </span>
-            <span class="el-col-push-4">
+              <span class="el-col-push-4">
 <!--          <el-link  :underline="false" href="" @click.prevent="forgetPassword">忘记密码?</el-link>-->
             <router-link to="/loginNum/forgetPassword" class="forget_Password_color">忘记密码?</router-link>
               &nbsp;
-              <!--              <el-link type="" :underline="false" href="" @click.prevent="registerNum" >立即注册</el-link>-->
+                <!--              <el-link type="" :underline="false" href="" @click.prevent="registerNum" >立即注册</el-link>-->
             <router-link to="/loginNum/registerNum" class="register_Num_color">立即注册</router-link>
         </span>
 
+            </div>
+            <div class="el-col-18 el-col-offset-3 div_margin" >
+              <el-button class="el-col-24" type="primary" @click="check_login">登录</el-button>
+            </div>
+          </el-form>
+          <div style="margin-top: -15px;">
+            <el-divider class="font_color" >
+            <span class="font_color">
+              第三方登录
+            </span>
+            </el-divider>
+            <div style="margin-bottom: 5px">
+              <el-link type="success">
+                <img src="../../../static/img/qq_24px.png" alt="">
+              </el-link>
+              <el-link type="default">
+                <img src="../../../static/img/Wechat_24px.png" width="26px" alt="">
+              </el-link>
+            </div>
           </div>
-          <div class="el-col-18 el-col-offset-3 div_margin">
-            <el-button class="el-col-24" type="primary" @click="check_login">登录</el-button>
-          </div>
-        </el-form>
-
-        <el-divider class="font_color">
-          <span class="font_color">
-            第三方登录
-          </span>
-        </el-divider>
-        <div>
-          <el-link type="success">
-            <img src="../../../static/img/qq_24px.png" alt="">
-          </el-link>
-          <el-link type="default">
-            <img src="../../../static/img/Wechat_24px.png" width="26px" alt="">
-          </el-link>
         </div>
       </div>
-    </div>
 
     <div class="auth" style="margin-top: 35px">
       <hr>
@@ -90,9 +91,9 @@
         if (value === '') {
           callback(new Error('请输入密码'))
         } else {
-          if (this.loginForm.password !== '') {
-            this.$refs.loginForm.validateField('password')
-          }
+          // if (this.loginForm.password !== '') {
+          //   this.$refs.loginForm.validateField('password')
+          // }
           callback()
         }
       };
@@ -213,7 +214,7 @@
     background: rgba(255, 255, 255, 0.28);
     border-radius: 10px;
     position: relative;
-    width: 420px;
+    width: 450px;
     max-width: 100%;
     padding: 0px 35px 0;
     margin: 0 auto;

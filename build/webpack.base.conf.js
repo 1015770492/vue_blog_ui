@@ -1,4 +1,4 @@
-var webpack = require('webpack')
+// var webpack = require('webpack')
 
 'use strict'
 const path = require('path')
@@ -22,13 +22,7 @@ const createLintingRule = () => ({
 })
 
 module.exports = {
-  plugins: [
-    new webpack.optimize.CommonsChunkPlugin('common.js'),
-    new webpack.ProvidePlugin({
-      jQuery: "jquery",
-      $: "jquery"
-    })
-  ],
+
   context: path.resolve(__dirname, '../'),
   entry: {
     app: './src/main.js'

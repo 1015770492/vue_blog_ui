@@ -8,14 +8,13 @@ import 'element-ui/lib/theme-chalk/index.css'
 import router from './router'
 import ValidateCode from './components/Login_Register_Reset_Module/ValidateCode'
 import timeOutLogin from './components/timeOutLogin.vue'
-// import $ from 'jquery'
-import 'bootstrap3/dist/css/bootstrap.css'
-// import 'bootstrap3/dist/js/bootstrap'
+
 
 // 验证码组件
 Vue.use(ValidateCode)
 Vue.config.productionTip = false
 Vue.use(ElementUI)
+
 const routes = [
   {
     path: '/loginNum',
