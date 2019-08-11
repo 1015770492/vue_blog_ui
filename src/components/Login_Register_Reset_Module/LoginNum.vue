@@ -15,7 +15,7 @@
             </div>
             <div class="el-col-18 el-col-offset-3 div_margin">
               <el-form-item  prop="password">
-                <el-input type="password" placeholder="请输入密码" v-model="loginForm.password" auto-complete="off"></el-input>
+                <el-input type="password" show-password="true" placeholder="请输入密码" v-model="loginForm.password" auto-complete="off"></el-input>
               </el-form-item>
             </div>
             <div class="el-col-18 el-col-offset-3 div_margin" style="margin-top: -15px;">
@@ -27,7 +27,7 @@
               记住密码
           </span>
         </span>
-              <span class="el-col-push-4">
+              <span class="el-col-push-5">
 <!--          <el-link  :underline="false" href="" @click.prevent="forgetPassword">忘记密码?</el-link>-->
             <router-link to="/loginNum/forgetPassword" class="forget_Password_color">忘记密码?</router-link>
               &nbsp;

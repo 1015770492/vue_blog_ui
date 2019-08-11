@@ -12,10 +12,14 @@
           <el-input type="text" v-model="registerForm.username"></el-input>
         </el-form-item>
         <el-form-item label="密码" prop="pass">
-          <el-input type="password" v-model="registerForm.pass" auto-complete="off"></el-input>
+          <el-input type="password" show-password="true" v-model="registerForm.pass" auto-complete="off" onpaste="return false"
+                    oncopy="return false" oncut="return false">
+          </el-input>
         </el-form-item>
         <el-form-item label="确认密码" prop="checkPass">
-          <el-input type="password" v-model="registerForm.checkPass" auto-complete="off"></el-input>
+          <el-input type="password" show-password="true" v-model="registerForm.checkPass" auto-complete="off"onpaste="return false"
+                    oncopy="return false" oncut="return false">
+          </el-input>
         </el-form-item>
         <el-form-item
           prop="email"

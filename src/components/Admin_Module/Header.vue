@@ -36,9 +36,9 @@
                 <el-dropdown-menu slot="dropdown" class="el-dropdown-menu2">
                 <el-dropdown-item class="el-dropdown-item">
 <!--                    <router-link>新建文章</router-link>-->
-                    <el-link :underline="false" type="info" @click.prevent="userInfo">
+                    <router-link to="/adminMeau/addArticle" type="info">
                       <i class="iconfont iconxinjianwenzhang i" ></i>文章
-                    </el-link>
+                    </router-link>
                 </el-dropdown-item>
 
                 <el-dropdown-item class="el-dropdown-item">
@@ -159,6 +159,14 @@
 </script>
 
 <style scoped>
+  a {
+    text-decoration: none;
+    color: #909399;
+  }
+  /*取消路由下划线*/
+  .router-link-active {
+    text-decoration: none;
+  }
   .i{
     font-size: 18px;
   }

@@ -7,7 +7,7 @@
              class="el-menu-vertical-demo message" @open="handleOpen" @close="handleClose" :collapse="isCollapse"
              background-color="#545c64"
              text-color="#fff"
-             router="true"
+             :router="openRouter"
              active-text-color="#ffd04b">
 
         <!--  仪表盘-->
@@ -56,11 +56,10 @@
           <span slot="title">文章管理</span>
         </template>
         <el-menu-item-group>
-          <el-menu-item index="3-1" @click.prevent="allArticle(user.username)">
-            <i class="el-icon-files"></i>
-            所有文章
+          <el-menu-item index="/adminMeau/allArticle">
+            <i class="el-icon-files"></i>所有文章
           </el-menu-item>
-          <el-menu-item index="3-2"><i class="el-icon-edit"></i>写文章</el-menu-item>
+          <el-menu-item index="/adminMeau/addArticle"><i class="el-icon-edit"></i>写文章</el-menu-item>
           <el-menu-item index="3-3"><i class="el-icon-notebook-2"></i>分类目录</el-menu-item>
           <el-menu-item index="3-4"><i class="iconfont iconbiaoqian" style="margin-left: 4px;margin-right: 12px"></i>标签</el-menu-item>
         </el-menu-item-group>
@@ -120,6 +119,7 @@
     name: 'Aside',
     data(){
       return{
+        openRouter:true,
         isCollapse: true,
         uniqueOpened: true,
       }
@@ -131,9 +131,6 @@
       },
       handleClose (key, keyPath) {
         console.log(key, keyPath)
-      },
-      allArticle (username) {
-        // this.$router.push('/allArticle/' + username)
       },
       changeIsCollapse(){
         this.isCollapse = !this.isCollapse
