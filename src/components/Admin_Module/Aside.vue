@@ -2,11 +2,12 @@
   <!--    侧边导航栏-->
   <el-container>
     <link rel="stylesheet" href="../../../static/css/iconfont.css">
-      <el-menu default-active="1-1" style="height: calc(100vh - 60px);margin-top:-1px"
+    <el-menu default-active="1-1"
              :unique-opened="uniqueOpened"
              class="el-menu-vertical-demo message" @open="handleOpen" @close="handleClose" :collapse="isCollapse"
              background-color="#545c64"
              text-color="#fff"
+             router="true"
              active-text-color="#ffd04b">
 
         <!--  仪表盘-->
@@ -97,9 +98,6 @@
         </template>
         <el-menu-item-group>
           <el-menu-item index="5-1">
-<!--              <span class="i" >-->
-<!--                <img style="color: #909399" src="../../../static/img/主题.png" height="18" width="18"/>-->
-<!--              </span>-->
             <i class="iconfont iconzhuti i" ></i>
             <span>
                 主题设置

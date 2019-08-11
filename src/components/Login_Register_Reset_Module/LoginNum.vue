@@ -2,10 +2,10 @@
   <div class="el-row body"  @mousewheel.prevent>
     <div class="login_form" style="margin-top: 140px;">
         <router-view v-show="!loginFormStaut"></router-view>
-        <div v-show="loginFormStaut" v-model="loginFormStaut" >
+        <div v-show="loginFormStaut" style="margin-top: 5px">
           <el-form class="el-row" :model="loginForm" status-icon :rules="rules" ref="loginForm" >
             <h2>
-              <span>登&nbsp;&nbsp;&nbsp;&nbsp;录</span>
+              <span >登&nbsp;&nbsp;&nbsp;&nbsp;录</span>
             </h2>
 
             <div class="el-col-18 el-col-offset-3 div_margin">

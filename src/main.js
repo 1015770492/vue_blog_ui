@@ -8,7 +8,9 @@ import 'element-ui/lib/theme-chalk/index.css'
 import router from './router'
 import ValidateCode from './components/Login_Register_Reset_Module/ValidateCode'
 import timeOutLogin from './components/timeOutLogin.vue'
-
+import mavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
+Vue.use(mavonEditor)
 
 // 验证码组件
 Vue.use(ValidateCode)
@@ -20,7 +22,8 @@ const routes = [
     path: '/loginNum',
     meta: {
       title: '超时重新登录',
-      scrollToTop: true
+      scrollToTop: true,
+
     },
     component:timeOutLogin,
   }
