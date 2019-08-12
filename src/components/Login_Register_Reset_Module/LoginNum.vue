@@ -15,7 +15,12 @@
             </div>
             <div class="el-col-18 el-col-offset-3 div_margin">
               <el-form-item  prop="password">
-                <el-input type="password" show-password="true" placeholder="请输入密码" v-model="loginForm.password" auto-complete="off"></el-input>
+                <el-input type="password"
+                          show-password='true'
+                          placeholder="请输入密码"
+                          @keyup.enter.native="check_login"
+                          v-model="loginForm.password"
+                          auto-complete="off"></el-input>
               </el-form-item>
             </div>
             <div class="el-col-18 el-col-offset-3 div_margin" style="margin-top: -15px;">
@@ -102,6 +107,7 @@
         loginForm:{
           username: '',
           password: '',
+          showPassword:true,
           password_status: false,
         },
         loginFormStaut: true,

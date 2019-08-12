@@ -11,8 +11,8 @@
         </el-aside>
         <!--   main中垂直布局，并且带滚动条  -->
         <el-container  direction="vertical" style="height: calc(100vh - 61px);">
-            <el-main style="padding: 0">
-              <el-header>
+            <el-main style="padding: 0;">
+              <el-header style="margin-top: 10px">
                 <el-tag
                   v-for="tag in tags"
                   :key="tag.name"
@@ -51,11 +51,6 @@
         ]
       }
     },
-    components: {
-      Header,
-      Aside,
-      Main,
-    },
     methods:{
       handleClose(index) {
         this.tags.splice(this.tags.indexOf(index), 1);
@@ -63,7 +58,13 @@
       changRouter(url){
         this.$router.push(url);
       }
-    }
+    },
+    components: {
+      Header,
+      Aside,
+      Main,
+    },
+
 
   }
 </script>

@@ -16,7 +16,7 @@
         </span>
         <!-- 首页图标 -->
         <span style="margin-left: 15px;" >
-          <el-link type="info" :underline="false" href="/helloWorld" style="margin-top: -6px">
+          <el-link type="info" :underline="false" href="/" style="margin-top: -6px">
                   <span class="header-font-style" >
                     <i class="iconfont iconindex" style="font-size: 25px;"></i>
                     <span style="margin-left: -3px">首页</span>

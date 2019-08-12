@@ -12,6 +12,10 @@ import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
 Vue.use(mavonEditor)
 
+import ECharts from 'vue-echarts'
+import 'echarts/lib/chart/line'
+Vue.component('chart', ECharts)
+
 // 验证码组件
 Vue.use(ValidateCode)
 Vue.config.productionTip = false
