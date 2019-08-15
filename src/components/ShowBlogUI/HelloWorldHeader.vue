@@ -38,7 +38,7 @@
           <el-menu-item index="2-4-1">shell编程</el-menu-item>
         </el-submenu>
       </el-submenu>
-      <el-menu-item index="3">生活语录</el-menu-item>
+      <el-menu-item index="3">丰富生活</el-menu-item>
       <el-menu-item index="4">人生规划</el-menu-item>
     </el-menu>
   </div>
