@@ -8,7 +8,7 @@
 
 <script>
   import HelloWorld from './components/HelloWorld'
-  import AdminMeau from './components/Admin_Module/AdminMeau'
+  import AdminMeau from './components/admin_Module/AdminMeau'
 
   export default {
     name: 'App',
@@ -23,7 +23,6 @@
 <style>
   #app{
     height:100% ; width:100%;
-    position:absolute;
   }
 
   body{

@@ -19,6 +19,8 @@
 </template>
 
 <script>
+  import PubSub from 'pubsub-js'
+
   export default {
     name: 'ForgetPassword',
     data () {
@@ -32,7 +34,8 @@
       submitForm(forgetNumForm){
         alert('进行ajax查询判断')
       }
-    }
+    },
+
 
   }
 </script>

@@ -42,7 +42,7 @@
       <el-menu-item index="4">人生规划</el-menu-item>
     </el-menu>
   </div>
-  <div class=" el-col-6 el-col-offset-0 el-dropdown_style">
+  <div class=" el-col-6 el-col-offset-0 el-dropdown_style" >
     <!--  用户登录状态 头像、消息通知-->
     <el-dropdown>
             <span class="el-dropdown-link">
