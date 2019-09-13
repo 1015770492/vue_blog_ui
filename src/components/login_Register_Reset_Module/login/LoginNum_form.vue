@@ -3,7 +3,7 @@
     <div class="login-wrap">
       <div class="login-html">
         <input id="tab-1" type="radio" name="tab" class="sign-in" checked=""><label for="tab-1" class="tab">登录</label>
-        <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">注册</label>
+        <input id="tab-2" ref="register" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">注册</label>
         <div class="login-form">
           <!--登录表单--->
           <el-form :model="loginForm" status-icon :rules="rules" ref="loginForm">
@@ -33,12 +33,12 @@
                 <span class="font_color">记住密码</span>
             </span>
                   <!--  忘记密码 -->
-                  <a @click="forgetPass" class="forget_Password_color" style="float: right">忘记密码?</a>
+                  <a @click.prevent="forgetPass" class="forget_Password_color" style="float: right">忘记密码?</a>
                 </div>
                 <div style="margin-top: 35px">
                   <el-button class="el-col-24 div_margin" type="primary" @click="check_login">登录</el-button>
                 </div>
-                <el-button class="el-col-24 div_margin" type="danger" @click="register_num">注册</el-button>
+                <el-button class="el-col-24 div_margin"  type="danger" @click="register_num">注册</el-button>
                 <!-- 第三方登录分割线 -->
                 <div>
                   <hr class="el-col-8" style="color: #3a8ee6">
@@ -78,7 +78,7 @@
 
 
 <script>
-  import RegisterNum from '../RegisterNum'
+  import RegisterNum from '../register/RegisterNum'
   import axios from 'axios'
   import PubSub from 'pubsub-js'
 
@@ -129,7 +129,7 @@
     methods: {
       check_login () {
         if (this.loginForm.username !== '' && this.loginForm.password !== '') {
-          if(this.password_status==true){
+          if(this.password_status===true){
             // 存储密码到文件中
             // alert(JSON.stringify(this.loginForm))
             window.localStorage.setItem('loginForm',JSON.stringify(this.loginForm))
@@ -149,7 +149,7 @@
         //
         // })
       }, register_num () {
-        this.$router.push('/loginNum/registerNum')
+        this.$refs.register.click()
       },
       forgetPass(){
         PubSub.publish('isShow',true)
@@ -160,7 +160,7 @@
     watch: {
       $route (to, from) {
         console.log(this.$route.path)
-        if (this.$route.path === '/loginNum') {
+        if (this.$route.path === '/login') {
           // alert("ok")
           // 登录页面显示登录表单
           this.loginFormStaut = true

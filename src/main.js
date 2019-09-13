@@ -23,7 +23,7 @@ Vue.use(ElementUI)
 
 const routes = [
   {
-    path: '/loginNum',
+    path: '/login',
     meta: {
       title: '超时重新登录',
       scrollToTop: true,
@@ -53,7 +53,7 @@ new Vue({
       let that = this
       clearInterval(that.timeOut)
       that.timeOut = setInterval(function () {
-        that.$router.push({path: '/loginNum'})
+        that.$router.push({path: '/login'})
       }, 1000 * 60 * 15)
     },
     isTimeOut () {
@@ -72,7 +72,7 @@ new Vue({
     '$route' (to, from) {
       if (to.path == from.path) {
         this.$router.push({
-          path: '/loginNum'
+          path: '/login'
         })
       }
     }
