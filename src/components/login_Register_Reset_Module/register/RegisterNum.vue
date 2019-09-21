@@ -7,14 +7,14 @@
       </el-form-item>
       <label>密码</label>
       <el-form-item prop="pass">
-        <el-input type="password" show-password="true" v-model="registerForm.pass" auto-complete="off"
+        <el-input type="password" :show-password="true" v-model="registerForm.pass" auto-complete="off"
                   onpaste="return false"
                   placeholder="请输入密码" oncopy="return false" oncut="return false">
         </el-input>
       </el-form-item>
       <label>确认密码</label>
       <el-form-item prop="checkPass">
-        <el-input type="password" show-password="true" v-model="registerForm.checkPass" auto-complete="off"
+        <el-input type="password" :show-password="true" v-model="registerForm.checkPass" auto-complete="off"
                   onpaste="return false"
                   placeholder="请确认密码" oncopy="return false" oncut="return false">
         </el-input>

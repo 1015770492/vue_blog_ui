@@ -18,7 +18,7 @@
                 <label class="label">密码</label>
                 <el-form-item prop="password">
                   <el-input type="password"
-                            show-password='true'
+                            :show-password='true'
                             placeholder="请输入密码"
                             @keyup.enter.native="check_login"
                             v-model="loginForm.password"
@@ -83,7 +83,6 @@
   import PubSub from 'pubsub-js'
 
   export default {
-
     name: 'login_form',
     data () {
       var validateUser = (rule, value, callback) => {
@@ -156,21 +155,12 @@
       }
 
     },
-
-    watch: {
-      $route (to, from) {
-        console.log(this.$route.path)
-        if (this.$route.path === '/login') {
-          // alert("ok")
-          // 登录页面显示登录表单
-          this.loginFormStaut = true
-        } else {
-          //其它页面隐藏登录表单，显示其它组件路由
-          this.loginFormStaut = false
-        }
-      },
-    },
-
+    mounted () {
+      //直接点击注册过来的
+      if (window.location.href.indexOf("register")>0) {
+        this.$refs.register.click()
+      }
+    }
 
   }
 
