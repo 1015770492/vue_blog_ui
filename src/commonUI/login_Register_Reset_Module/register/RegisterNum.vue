@@ -49,8 +49,8 @@
 
 <script>
 
-  import ValidateCode from '../ValidateCode'
-  import Label from '../../admin_Module/articleManage/Label'
+  import ValidateCode from '../../checkComponent/ValidateCode'
+  import Label from '../../../computerUI/admin_Module/components/articleManage/Label'
 
   export default {
     name: 'RegisterNum',

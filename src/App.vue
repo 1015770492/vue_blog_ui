@@ -1,13 +1,13 @@
 <template>
   <div id="app">
+<!--    跳转到IndexHello组件显示首页  -->
     <router-view></router-view>
-<!--    <AdminMeau/>-->
   </div>
 </template>
 
 <script>
-  import HelloWorld from './components/HelloWorld'
-  import AdminMeau from './components/admin_Module/AdminMeau'
+  import HelloWorld from './commonUI/Index'
+  import AdminMeau from './computerUI/admin_Module/AdminMeau'
 
   export default {
     name: 'App',

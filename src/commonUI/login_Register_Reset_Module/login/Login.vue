@@ -17,9 +17,9 @@
 
 
 <script>
-  import Star_Background from './background/Star_Background'
-  import LoginNum_form from './login/Login_form'
-  import ForgetPassword from './forgetPassword/ForgetPassword'
+  import Star_Background from '../background/Login_Background'
+  import LoginNum_form from './Login_form'
+  import ForgetPassword from '../password/ForgetPassword'
 
   export default {
     name: 'login',

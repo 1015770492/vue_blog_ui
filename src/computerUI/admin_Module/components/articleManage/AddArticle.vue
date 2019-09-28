@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <link rel="stylesheet" href="../../../../static/css/iconfont.css">
+  <div >
+    <link rel="stylesheet" href="../../../../../static/css/iconfont.css">
 
     <el-header>
       <el-input v-model="articleForm.title"

@@ -5,16 +5,18 @@ import App from './App'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import router from './router'
-import ValidateCode from './components/login_Register_Reset_Module/ValidateCode'  // 数字验证码
+import ValidateCode from './commonUI/checkComponent/ValidateCode'  // 数字验证码
 import SlideVerify from 'vue-monoplasty-slide-verify'          // 滑动验证
-import timeOutLogin from './components/timeOutLogin.vue'
+import timeOutLogin from './commonUI/timeOutLogin.vue'
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
 
 
 Vue.use(mavonEditor)
 import $ from 'jquery'
+import LyTab from 'ly-tab'
 
+Vue.use(LyTab)
 // 验证码组件
 Vue.use(ValidateCode)
 Vue.use(SlideVerify);

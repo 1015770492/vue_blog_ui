@@ -1,17 +1,21 @@
 <template>
+<!--  首页  入口 -->
   <el-container style="height: auto">
     <!--    顶栏导航栏-->
     <el-header class="el-row" style="padding: 0 0 0 0;height: auto">
-      <Nav_Header_ComputerUI v-if="screenWidth>768" style="height: 60px"/>
-      <Nav_Header_PhoneUI v-else style="min-height: 60px"/>
+<!--      判断屏幕的宽度是否大于768 大于则显示电脑端的header-->
+      <Nav_Header_ComputerUI v-if="screenWidth>768" style="height: 60px"/><!--这里设置header的高度，下面计算出展示博客的主界面的高度-->
+<!--      不大于768则显示手机端的header-->
+      <Nav_Header_PhoneUI v-else style="min-height: 60px"/><!--这里设置header的高度，下面计算出展示博客的主界面的高度-->
     </el-header>
-<!--    主显示界面  -->
+    <!--    首页主容器 界面展示博客信息  -->
     <el-container direction="horizontal" style="padding: 0;border-top: #5f5d58 1px solid">
       <!--   main中垂直布局，并且带滚动条  -->
-      <el-container direction="vertical" style="height: calc(100vh - 61px);">
+      <el-container direction="vertical" style="height: calc(100vh - 61px);"><!--注意这里主容器的高度，用css3的calc计算出100%-61px的高度-->
         <el-main style="padding: 0;" id="mainbody">
+<!--          头-->
           <el-header></el-header>
-<!--          <BlogRecord/>-->
+<!--          脚注-->
           <el-footer></el-footer>
 
         </el-main>
@@ -24,9 +28,8 @@
 
 
 <script>
-  import BlogRecord from './hellWolrd/blogRecord/BlogRecord'
-  import Nav_Header_ComputerUI from './navigation/Nav_Header_ComputerUI'
-  import Nav_Header_PhoneUI from './navigation/Nav_Header_PhoneUI'
+  import Nav_Header_ComputerUI from '../computerUI/navigation/Nav_Header_ComputerUI'
+  import Nav_Header_PhoneUI from '../phoneUI/Nav_Header_PhoneUI'
 
   export default {
     name: 'hello',
@@ -39,18 +42,6 @@
     components: {
       Nav_Header_ComputerUI,
       Nav_Header_PhoneUI,
-      BlogRecord
-    },
-    watch:{
-      'screenWidth':function(val){ //监听屏幕宽度变化
-        var oIframe = document.getElementById(divId);
-        oIframe.style.width = Number(val);
-
-      },
-      'screenHeight':function(){ //监听屏幕高度变化
-        var oIframe = document.getElementById(divId);
-        oIframe.style.height = Number(val);
-      }
     },
     mounted() {
       var _this = this;

@@ -7,12 +7,11 @@
            text-color="#fff"
            active-text-color="#ffd04b">
     <div class="el-col-md-20 el-col-md-offset-0 el-col-sm-19 el-col-sm-offset-0  el-col-xs-16 el-col-xs-offset-0">
-      <link rel="stylesheet" href="../../../static/css/iconfont.css">
+      <link rel="stylesheet" href="../../../../static/css/iconfont.css">
       <el-row>
         <!-- 打开侧边导航栏图标 -->
         <span>
-          <el-menu-item class="el-icon-s-unfold" style="font-size: 23px;width: 63px;height: 61px;"
-                        @click="this.openAside"></el-menu-item>
+          <el-menu-item class="el-icon-s-unfold" style="font-size: 23px;width: 63px;height: 61px;" @click="this.openAside"></el-menu-item>
         </span>
         <!-- 首页图标 -->
         <span style="margin-left: 15px;" >

@@ -1,7 +1,7 @@
 <template>
   <!--    侧边导航栏-->
   <el-container>
-    <link rel="stylesheet" href="../../../static/css/iconfont.css">
+    <link rel="stylesheet" href="../../../../static/css/iconfont.css">
     <el-menu default-active="1-1"
              :unique-opened="uniqueOpened"
              class="el-menu-vertical-demo message" @open="handleOpen" @close="handleClose" :collapse="isCollapse"

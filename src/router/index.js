@@ -3,13 +3,13 @@
 */
 import Vue from 'vue'  // vue
 import VueRouter from 'vue-router'  // 路由器
-import Login from '../components/login_Register_Reset_Module/Login'  // 登录账号
-import ForgetPassword from '../components/login_Register_Reset_Module/forgetPassword/ForgetPassword'  //忘记密码
-import ResetPassword from '../components/login_Register_Reset_Module/ResetPassword'  //重置密码
-import HelloWorld from '../components/HelloWorld'   //首页显示
-import AdminMeau from '../components/admin_Module/AdminMeau' // 后台管理组件
-import AddArticle from '../components/admin_Module/articleManage/AddArticle' // 写博客
-import Login_form from '../components/login_Register_Reset_Module/login/Login_form'
+import Login from '../commonUI/login_Register_Reset_Module/login/Login'  // 登录账号
+import ForgetPassword from '../commonUI/login_Register_Reset_Module/password/ForgetPassword'  //忘记密码
+import ResetPassword from '../commonUI/login_Register_Reset_Module/password/ResetPassword'  //重置密码
+import IndexHello from '../commonUI/Index'   //首页显示
+import AdminMeau from '../computerUI/admin_Module/AdminMeau' // 后台管理组件
+import AddArticle from '../computerUI/admin_Module/components/articleManage/AddArticle' // 写博客
+import Login_form from '../commonUI/login_Register_Reset_Module/login/Login_form'
 
 Vue.use(VueRouter)  // 注册组件使用路由器
 
@@ -50,7 +50,7 @@ export default new VueRouter({
      */
     {
       path: '/helloWorld',
-      component: HelloWorld
+      component: IndexHello
     },
     /**
      * 管理员路由
