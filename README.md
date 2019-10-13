@@ -1,6 +1,7 @@
 # vue_blog_ui
 
 > vue的博客UI
+前端页面还在制作中，暂时项目不完整，预计会制作PC端和移动端
 
 ## Build Setup
 
