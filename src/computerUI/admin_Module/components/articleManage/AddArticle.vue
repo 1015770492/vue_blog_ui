@@ -70,9 +70,9 @@
 
         <div>
           <span class="el-col-12">
-            <el-button @click="submitArticleForm" class="iconfont iconfabu" type="danger" plain> 发布文章</el-button>
-            <el-button class="iconfont iconcaogao" type="danger" plain> 存为草稿</el-button>
-            <el-button class="iconfont iconfanhui" type="info" plain>返回</el-button>
+            <el-button @click="submitArticleForm" class="iconfont iconfabu el-button-style" type="danger" plain> 发布文章</el-button>
+            <el-button class="iconfont iconcaogao el-button-style" type="danger" plain> 存为草稿</el-button>
+            <el-button class="iconfont iconfanhui el-button-style" type="info" plain>返回</el-button>
           </span>
         </div>
         <div style="height: 50px">
@@ -186,5 +186,10 @@
     width: 90px;
     margin-left: 10px;
     vertical-align: bottom;
+  }
+  .el-button-style{
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 0px;
   }
 </style>

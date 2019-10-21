@@ -135,7 +135,7 @@
           }else {
             window.localStorage.setItem('loginForm','{}')
           }
-          this.$router.push('/adminMeau')
+          this.$router.push('/adminMeau/allDataView')
           this.$message({
             message: '登录成功',
             type: 'success'

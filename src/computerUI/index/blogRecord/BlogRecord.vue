@@ -1,10 +1,11 @@
 <template>
-  <div style="width: 660px;margin: auto">
+  <div style="width: 660px;">
     <el-timeline style="padding-left: 0px">
       <el-timeline-item timestamp="2018/4/12" placement="top">
       </el-timeline-item>
 
       <el-timeline-item  style="margin-top: -15px;padding: 0;margin-bottom: 27px;"></el-timeline-item>
+      <!-- 分页 -->
       <div>
         <el-pagination
           @size-change="handleSizeChange"

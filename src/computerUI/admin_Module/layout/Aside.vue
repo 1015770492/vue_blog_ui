@@ -2,7 +2,7 @@
   <!--    侧边导航栏-->
   <el-container>
     <link rel="stylesheet" href="../../../../static/css/iconfont.css">
-    <el-menu default-active="1-1"
+    <el-menu default-active="/adminMeau/allDataView"
              :unique-opened="uniqueOpened"
              class="el-menu-vertical-demo message" @open="handleOpen" @close="handleClose" :collapse="isCollapse"
              background-color="#545c64"
@@ -10,14 +10,14 @@
              :router="openRouter"
              active-text-color="#ffd04b">
 
-        <!--  仪表盘-->
-      <el-submenu index="1" style="margin-top: 1px">
+      <!--  仪表盘-->
+      <el-submenu index="/adminMeau" style="margin-top: 1px">
         <template slot="title">
           <i class="el-icon-odometer"></i>
           <span slot="title">仪表盘</span>
         </template>
         <el-menu-item-group>
-          <el-menu-item index="1-1">
+          <el-menu-item index="/adminMeau/allDataView">
             <i class="el-icon-s-marketing"></i>数据总览
           </el-menu-item>
         </el-menu-item-group>
@@ -30,7 +30,7 @@
           <span slot="title">媒体库</span>
         </template>
         <el-menu-item-group>
-          <el-menu-item index="2-1">
+          <el-menu-item index="/adminMeau/playMusic">
             <i class="iconfont iconyinyue i" style="margin-left: 4px;margin-right: 6px"></i>
             音乐
           </el-menu-item>
@@ -39,7 +39,7 @@
             视频
           </el-menu-item>
           <el-menu-item index="2-3">
-            <i class="iconfont icontupian i"  style="margin-left: 4px;margin-right: 6px"></i>
+            <i class="iconfont icontupian i" style="margin-left: 4px;margin-right: 6px"></i>
             图片
           </el-menu-item>
           <el-menu-item index="2-3">
@@ -61,7 +61,8 @@
           </el-menu-item>
           <el-menu-item index="/adminMeau/addArticle"><i class="el-icon-edit"></i>写文章</el-menu-item>
           <el-menu-item index="3-3"><i class="el-icon-notebook-2"></i>分类目录</el-menu-item>
-          <el-menu-item index="3-4"><i class="iconfont iconbiaoqian" style="margin-left: 4px;margin-right: 12px"></i>标签</el-menu-item>
+          <el-menu-item index="3-4"><i class="iconfont iconbiaoqian" style="margin-left: 4px;margin-right: 12px"></i>标签
+          </el-menu-item>
         </el-menu-item-group>
       </el-submenu>
 
@@ -97,7 +98,7 @@
         </template>
         <el-menu-item-group>
           <el-menu-item index="5-1">
-            <i class="iconfont iconzhuti i" ></i>
+            <i class="iconfont iconzhuti i"></i>
             <span>
                 主题设置
             </span>
@@ -116,14 +117,14 @@
 
   export default {
     name: 'Aside',
-    data(){
-      return{
-        openRouter:true,
+    data () {
+      return {
+        openRouter: true,
         isCollapse: true,
         uniqueOpened: true,
       }
     },
-    methods:{
+    methods: {
 
       handleOpen (key, keyPath) {
         console.log(key, keyPath)
@@ -131,36 +132,37 @@
       handleClose (key, keyPath) {
         console.log(key, keyPath)
       },
-      changeIsCollapse(){
+      changeIsCollapse () {
         this.isCollapse = !this.isCollapse
       }
 
     },
     mounted () {
-      PubSub.subscribe("changeIsCollapse",(msg,data)=>{
+      PubSub.subscribe('changeIsCollapse', (msg, data) => {
         this.changeIsCollapse()
       })
     },
-
 
   }
 </script>
 
 <style scoped>
-  .nav-color{
+  .nav-color {
     color: white;
   }
 
-  .i{
+  .i {
     font-size: 18px;
     margin-left: 2px;
     margin-right: 6px;
     color: #909399;
   }
+
   .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 200px;
   }
-  .my-el-dropdown-menu{
+
+  .my-el-dropdown-menu {
     margin-left: 35px;
   }
 </style>

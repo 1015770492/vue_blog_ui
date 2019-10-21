@@ -2,21 +2,23 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
-import router from './router'
+import ElementUI from 'element-ui'//elementui
+import 'element-ui/lib/theme-chalk/index.css'  // elementui样式
+import router from './router'   //路由index.js
 import ValidateCode from './commonUI/checkComponent/ValidateCode'  // 数字验证码
 import SlideVerify from 'vue-monoplasty-slide-verify'          // 滑动验证
-import timeOutLogin from './commonUI/timeOutLogin.vue'
-import mavonEditor from 'mavon-editor'
-import 'mavon-editor/dist/css/index.css'
-
-
-Vue.use(mavonEditor)
+import timeOutLogin from './commonUI/timeOutLogin.vue'         //超时重新登录
+import mavonEditor from 'mavon-editor'  // markdown编辑器
+import 'mavon-editor/dist/css/index.css'// markdown样式
 import $ from 'jquery'
+import echarts from 'echarts'
+Vue.prototype.$echarts = echarts
+Vue.use(mavonEditor)
+import animate from 'animate.css'
+Vue.use(animate)
 import LyTab from 'ly-tab'
+Vue.use(LyTab)//手机端的可滑动标签导航栏
 
-Vue.use(LyTab)
 // 验证码组件
 Vue.use(ValidateCode)
 Vue.use(SlideVerify);
