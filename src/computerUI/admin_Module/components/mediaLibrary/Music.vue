@@ -6,7 +6,7 @@
       @keyup.enter.native="searchMusic"
       v-model="keyWord.showKeyword">
     </el-input>
-    <Aplayer :autoplay="false"
+    <Aplayer :autoplay="true"
              :controls="true"
              :showLrc="true"
              :list=this.musicList

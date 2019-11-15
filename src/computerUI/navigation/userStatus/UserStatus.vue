@@ -63,13 +63,13 @@
         return true;
       },
       userInfo () {
-        this.$router.push('/userInfo')
+        this.$router.push('/adminMeau/userInfo')
       },
       userMessage () {
-        this.$router.push('/userMessage')
+        this.$router.push('/adminMeau/userMessage')
       },
       sercurityCenter () {
-        this.$router.push('/securityCenter')
+        this.$router.push('/adminMeau/securityCenter')
       },
       logout () {
         this.$router.go(0)//退出登录并且 刷新页面
