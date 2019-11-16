@@ -13,11 +13,11 @@ import AddArticle from '../computerUI/admin_Module/components/articleManage/AddA
 import Login_form from '../commonUI/login_Register_Reset_Module/login/Login_form'   //登录表单
 import ALlDataView from '../computerUI/admin_Module/components/dashboard/ALlDataView'
 import Music from '../computerUI/admin_Module/components/mediaLibrary/Music'   // 仪表盘数据总览
-
+import ErrorPage from '../commonUI/404'
 Vue.use(VueRouter)  // 注册组件使用路由器
 
 export default new VueRouter({
-
+  mode:'history',
   routes: [
     /**
      *首页重定向路由
@@ -25,6 +25,10 @@ export default new VueRouter({
     {
       path: '/',
       redirect: '/helloWorld'
+    },
+    {
+      path:'/404',
+      component:ErrorPage
     },
     /**
      *注册，登录 模块组件路由
