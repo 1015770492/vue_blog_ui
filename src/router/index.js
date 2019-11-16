@@ -17,7 +17,7 @@ import ErrorPage from '../commonUI/404'
 Vue.use(VueRouter)  // 注册组件使用路由器
 
 export default new VueRouter({
-  mode:'history',
+  // mode:'history',
   routes: [
     /**
      *首页重定向路由

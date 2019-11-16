@@ -43,10 +43,10 @@
       </g>
     </svg>
     <nav class="shelf" style="left: 40vw">
-      <a class="book home-page">首页</a>
+      <a class="book home-page" href="http://www.huashengshu.top">首页</a>
       <a class="book about-us">留言</a>
-      <a class="book contact">我的CSDN博客</a>
-      <a class="book faq">我的Github地址</a>
+      <a class="book contact" href="https://blog.csdn.net/qq_41813208">我的CSDN博客</a>
+      <a class="book faq" href="https://github.com/1015770492">我的Github地址</a>
       <span class="book not-found"></span>
       <span class="door left"></span>
       <span class="door right"></span>
