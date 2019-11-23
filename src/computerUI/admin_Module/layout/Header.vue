@@ -75,11 +75,11 @@
       class="el-col-md-4 el-col-md-offset-0 el-col-sm-5 el-col-sm-offset-0 el-col-xs-8 el-col-xs-offset-0 el-dropdown_style">
       <el-dropdown>
               <span class="el-dropdown-link">
-                <span>
+                <span class="userimg">
                  <el-badge is-dot class="dot-location"></el-badge>
                  <el-avatar src="../../../static/img/头像.jpg" class="el-avatar"></el-avatar>
                 </span>
-                <span class="usermeau">
+                <span class="username">
                   {{user.name|ellipsis}}<i class="el-icon-caret-bottom el-icon--right"></i>
                 </span>
               </span>
@@ -113,7 +113,7 @@
     data(){
       return{
         user: {
-          name: '花生鼠的日常',
+          name: '花生鼠的日常博客',
           username: ''
         },
 
@@ -147,7 +147,7 @@
     filters: {
       ellipsis (value) {
         if (!value) return ''
-        if (value.length > 3) {
+        if (value.length > 10) {
           return value.slice(0, 3) + '...'
         }
         return value
@@ -171,7 +171,7 @@
   }
 
   .header-font-style{
-    font-size: 18px;
+    font-size: 15px;
     color: #909399
   }
   .dot-location {
@@ -184,7 +184,7 @@
     margin-top: 10px
   }
 
-  .usermeau {
+  .username{
     position: relative;
     color: white;
     top: -10px;
@@ -216,6 +216,15 @@
     border: 0px;
     color: white;
     background-color: #545c64;
+  }
+  /*屏幕小于400px则隐藏用户名称*/
+  @media screen and (max-width: 400px){
+    .username{
+      display: none;
+    }
+    .userimg{
+      margin-right: 8px;
+    }
   }
 
 
