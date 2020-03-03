@@ -5,9 +5,9 @@ import App from './App'
 import ElementUI from 'element-ui'//elementui
 import 'element-ui/lib/theme-chalk/index.css'  // elementui样式
 import router from './router'   //路由index.js
-import ValidateCode from './commonUI/checkComponent/ValidateCode'  // 数字验证码
+import ValidateCode from './common/checkComponent/ValidateCode'  // 数字验证码
 import SlideVerify from 'vue-monoplasty-slide-verify'          // 滑动验证
-import timeOutLogin from './commonUI/timeOutLogin.vue'         //超时重新登录
+import timeOutLogin from './common/TimeOutLogin.vue'         //超时重新登录
 import mavonEditor from 'mavon-editor'  // markdown编辑器
 import 'mavon-editor/dist/css/index.css'// markdown样式
 import $ from 'jquery'

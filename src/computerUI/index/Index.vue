@@ -1,11 +1,11 @@
 <template>
-<!--  首页  入口 -->
+  <!--  首页 博客网站的首页  -->
   <el-container style="height: auto">
     <!--    顶栏导航栏-->
     <el-header class="el-row" style="padding: 0 0 0 0;height: auto">
-<!--      判断屏幕的宽度是否大于768 大于则显示电脑端的header-->
+      <!--      判断屏幕的宽度是否大于768 大于则显示电脑端的header-->
       <Nav_Header_ComputerUI v-if="screenWidth>768" style="height: 60px"/><!--这里设置header的高度，下面计算出展示博客的主界面的高度-->
-<!--      不大于768则显示手机端的header-->
+      <!--      不大于768则显示手机端的header-->
       <Nav_Header_PhoneUI v-else style="min-height: 60px"/><!--这里设置header的高度，下面计算出展示博客的主界面的高度-->
     </el-header>
     <!--    首页主容器 界面展示博客信息  -->
@@ -13,9 +13,9 @@
       <!--   main中垂直布局，并且带滚动条  -->
       <el-container direction="vertical" style="height: calc(100vh - 61px);"><!--注意这里主容器的高度，用css3的calc计算出100%-61px的高度-->
         <el-main style="padding: 0;" id="mainbody">
-<!--          头-->
+          <!--          头-->
           <el-header></el-header>
-<!--          脚注-->
+          <!--          脚注-->
           <el-footer></el-footer>
 
         </el-main>
@@ -28,29 +28,29 @@
 
 
 <script>
-  import Nav_Header_ComputerUI from '../computerUI/navigation/Nav_Header_ComputerUI'
-  import Nav_Header_PhoneUI from '../phoneUI/Nav_Header_PhoneUI'
+    import Nav_Header_ComputerUI from './navigation/Nav_Header_ComputerUI'
+    import Nav_Header_PhoneUI from '../../phoneUI/Nav_Header_PhoneUI'
 
-  export default {
-    name: 'hello',
-    data() {
-      return {
-        screenWidth: document.documentElement.clientWidth,//屏幕宽度
-        screenHeight: document.documentElement.clientHeight,//屏幕高度
-      }
-    },
-    components: {
-      Nav_Header_ComputerUI,
-      Nav_Header_PhoneUI,
-    },
-    mounted() {
-      var _this = this;
-      window.onresize = function(){ // 定义窗口大小变更通知事件
-        _this.screenWidth = document.documentElement.clientWidth; //窗口宽度
-        _this.screenHeight = document.documentElement.clientHeight; //窗口高度
-      };
+    export default {
+        name: 'hello',
+        data() {
+            return {
+                screenWidth: document.documentElement.clientWidth,//屏幕宽度
+                screenHeight: document.documentElement.clientHeight,//屏幕高度
+            }
+        },
+        components: {
+            Nav_Header_ComputerUI,
+            Nav_Header_PhoneUI,
+        },
+        mounted() {
+            var _this = this;
+            window.onresize = function () { // 定义窗口大小变更通知事件
+                _this.screenWidth = document.documentElement.clientWidth; //窗口宽度
+                _this.screenHeight = document.documentElement.clientHeight; //窗口高度
+            };
+        }
     }
-  }
 
 </script>
 

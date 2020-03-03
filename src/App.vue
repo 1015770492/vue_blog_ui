@@ -6,8 +6,8 @@
 </template>
 
 <script>
-  import HelloWorld from './commonUI/Index'
-  import AdminMeau from './computerUI/admin_Module/AdminMeau'
+  import HelloWorld from './computerUI/index/Index'
+  import AdminMeau from './computerUI/admin/AdminMeau'
 
   export default {
     name: 'App',

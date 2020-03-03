@@ -1,12 +1,12 @@
 <template>
-  <!--  用户登录状态 头像、消息通知-->
-  <el-dropdown >
-  <!--    头像图标-->
+  <!--  用户登录状态 头像、消息通知等-->
+  <el-dropdown>
+    <!--    头像图标-->
     <div v-if="isLogin()">
         <span class="el-dropdown-link" style="float: right">
         <span>
          <el-badge is-dot class="dot-location"></el-badge>
-         <el-avatar src="../../../../static/img/头像.jpg" class="el-avatar" ></el-avatar>
+         <el-avatar src="../../../../static/img/头像.jpg" class="el-avatar"></el-avatar>
         </span>
         <span class="usermeau">
           {{user.name|ellipsis}}<i class="el-icon-caret-bottom el-icon--right"></i>
@@ -38,49 +38,49 @@
 </template>
 
 <script>
-  export default {
-    name: 'UserStatus',
-    data(){
-      return{
-        user:{
-          name: '花生鼠的日常',
-          username: ''
+    export default {
+        name: 'UserStatus',
+        data() {
+            return {
+                user: {
+                    name: '花生鼠的日常',
+                    username: ''
+                }
+            }
+        },
+        filters: {
+            ellipsis(value) {
+                if (!value) return ''
+                if (value.length > 4) {
+                    return value.slice(0, 4) + '...'
+                }
+                return value
+            }
+        },
+        methods: {
+            // 判断是否已经登录过
+            isLogin() {
+                return true;
+            },
+            userInfo() {
+                this.$router.push('/adminMeau/userInfo')
+            },
+            userMessage() {
+                this.$router.push('/adminMeau/userMessage')
+            },
+            sercurityCenter() {
+                this.$router.push('/adminMeau/securityCenter')
+            },
+            logout() {
+                this.$router.go(0)//退出登录并且 刷新页面
+                this.$message({
+                    showClose: true,
+                    message: '已退出登录',
+                    type: 'success'
+                })
+            },
         }
-      }
-    },
-    filters: {
-      ellipsis (value) {
-        if (!value) return ''
-        if (value.length > 4) {
-          return value.slice(0, 4) + '...'
-        }
-        return value
-      }
-    },
-    methods:{
-      // 判断是否已经登录过
-      isLogin(){
-        return true;
-      },
-      userInfo () {
-        this.$router.push('/adminMeau/userInfo')
-      },
-      userMessage () {
-        this.$router.push('/adminMeau/userMessage')
-      },
-      sercurityCenter () {
-        this.$router.push('/adminMeau/securityCenter')
-      },
-      logout () {
-        this.$router.go(0)//退出登录并且 刷新页面
-        this.$message({
-          showClose: true,
-          message: '已退出登录',
-          type: 'success'
-        })
-      },
     }
-  }
 </script>
 
 <style scoped>
@@ -88,23 +88,27 @@
     text-decoration: none;
     color: #909399;
   }
+
   /*注册登录字体的样式*/
-  .header_right{
+  .header_right {
     padding: 0 10px;
     font-size: 14px;
     line-height: 60px;
     color: rgb(185, 185, 185);
   }
+
   /*红点提示的位置*/
   .dot-location {
     position: relative;
     left: 45px;
     top: -30px;
   }
+
   /*头像下移10像素*/
   .el-avatar {
     margin-top: 10px
   }
+
   /*下拉文本菜单*/
   .el-dropdown_style {
     text-align: right;

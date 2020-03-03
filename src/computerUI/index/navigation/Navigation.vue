@@ -38,14 +38,14 @@
 
 <script>
 
-  export default {
-    name: 'Navigation',
-    methods: {
-      handleSelect (key, keyPath) {
-        console.log(key, keyPath)
-      },
-    },
-  }
+    export default {
+        name: 'Navigation',
+        methods: {
+            handleSelect(key, keyPath) {
+                console.log(key, keyPath)
+            },
+        },
+    }
 </script>
 
 <style scoped>

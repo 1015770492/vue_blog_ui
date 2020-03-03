@@ -19,7 +19,7 @@
 <script>
   import axios from 'axios'
   import Aplayer from 'vue-aplayer'
-  import API from '../../../../ApiServerRedirect/ApiServer'
+  import API from '../../../../Api/MusicApiServer'
 
   export default {
     name: 'Music',
