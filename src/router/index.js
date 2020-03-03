@@ -9,7 +9,7 @@ import ResetPassword from '../computerUI/login_Register_Reset/password/ResetPass
 import HelloWorld from '../computerUI/index/Index'   //首页显示
 import AdminMeau from '../computerUI/admin/AdminMeau' // 后台管理组件
 import AllArticle from '../computerUI/admin/components/articleManage/AllArticle'  // 查看所有文章
-import AddArticle from '../computerUI/admin/components/articleManage/AddArticle' // 写博客
+import AddArticle from '../computerUI/admin/components/articleManage/WriteArticle' // 写博客
 import Login_form from '../computerUI/login_Register_Reset/login/Login_form'   //登录表单
 import ALlDataView from '../computerUI/admin/components/dashboard/ALlDataView'
 import Music from '../computerUI/admin/components/mediaLibrary/Music'   // 仪表盘数据总览

@@ -40,6 +40,7 @@
   }
 
   .fl{
+    color: rgb(188, 74, 4);
     float: left;
   }
   .fr{
@@ -64,7 +65,7 @@
     z-index:2;
     width:50px;
     height:460px;
-    background: url("images/j1.png") no-repeat right 0;
+    /*background: url("images/j1.png") no-repeat right 0;*/
   }
   .r-pic-index{
     /*display:none;*/
@@ -75,7 +76,7 @@
     width:50px;
     *width:82px;
     height:460px;
-    background: url("images/j4.png") no-repeat left 0;
+    /*background: url("images/j4.png") no-repeat left 0;*/
   }
   .l-bg-index{
     position: absolute;
@@ -84,7 +85,7 @@
     z-index: 1;
     width: 25px;
     height: 459px;
-    background: url("images/j2.png") right 0 no-repeat;
+    /*background: url("images/j2.png") right 0 no-repeat;*/
   }
   .r-bg-index{
     position: absolute;
@@ -93,7 +94,7 @@
     z-index: 1;
     width: 25px;
     height: 459px;
-    background: url("images/j3.png") 0 0 no-repeat;
+    /*background: url("images/j3.png") 0 0 no-repeat;*/
   }
   .main-index{
     display: none;

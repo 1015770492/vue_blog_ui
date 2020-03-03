@@ -50,7 +50,7 @@
 <script>
 
   import ValidateCode from '../../../common/checkComponent/ValidateCode'
-  import Label from '../../admin/components/articleManage/Label'
+  import Label from '../../admin/components/articleManage/Tags'
 
   export default {
     name: 'RegisterNum',
