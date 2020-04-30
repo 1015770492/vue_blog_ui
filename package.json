@@ -18,7 +18,7 @@
     "element-ui": "^2.11.0",
     "hls.js": "^0.12.4",
     "identify": "^0.1.5",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "ly-tab": "^2.1.2",
     "mavon-editor": "^2.7.5",
     "pubsub-js": "^1.7.0",
